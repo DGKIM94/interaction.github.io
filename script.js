@@ -1,109 +1,143 @@
 // script.js
 
-/* --- 1. Common Utility: Detail Overlay Control --- */
+/* --- 1. 유틸리티: 오버레이 제어 --- */
 function openDetail(htmlContent) {
     const overlay = document.getElementById('detail-overlay');
     const body = document.getElementById('detail-body');
+
+    // 오버레이 요소가 없는 페이지(예: News)에서 호출될 경우를 대비
+    if (!overlay || !body) return;
+
     body.innerHTML = htmlContent;
-    overlay.classList.add('active'); // CSS slide-up animation
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    overlay.classList.add('active'); // CSS 슬라이드 업 애니메이션
+    document.body.style.overflow = 'hidden'; // 배경 스크롤 막기
 }
 
 function closeDetail() {
     const overlay = document.getElementById('detail-overlay');
-    overlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // 스크롤 복구
+    }
 }
 
-/* --- 2. Home Rendering --- */
+// 오버레이 외부 클릭 시 닫기
+document.addEventListener('click', function(event) {
+    const overlay = document.getElementById('detail-overlay');
+    if (event.target === overlay) {
+        closeDetail();
+    }
+});
+
+/* --- 2. 메인 페이지 (Home) 렌더링 --- */
 function renderHome() {
-    // News
+    // 1) 뉴스 (최신 3개)
     const newsContainer = document.getElementById('home-news');
-    if (newsContainer) {
+    if (newsContainer && typeof newsData !== 'undefined') {
+        newsContainer.innerHTML = ''; // 초기화
         newsData.slice(0, 3).forEach(item => {
             newsContainer.innerHTML += `
                 <div class="news-card">
                     <span class="news-date">${item.date}</span>
-                    <h3 style="font-size:1.1rem; margin:5px 0;">${item.title}</h3>
-                    <p style="color:#666; font-size:0.9rem;">${item.content}</p>
+                    <h3 style="font-size:1.1rem; margin:10px 0; color:var(--dark);">${item.title}</h3>
+                    <p style="color:#666; font-size:0.9rem; line-height:1.5;">${item.content}</p>
                 </div>`;
         });
     }
 
-    // Research Highlights (Ongoing first)
+    // 2) 연구 하이라이트 (Ongoing 중 상위 4개)
     const resContainer = document.getElementById('home-research');
-    if (resContainer) {
+    if (resContainer && typeof researchData !== 'undefined') {
+        resContainer.innerHTML = ''; // 초기화
+        // Ongoing이면서 상위 4개만 추출
         const highlights = researchData.filter(r => r.status === 'Ongoing').slice(0, 4);
-        highlights.forEach(item => {
+
+        highlights.forEach((item) => {
+            // 주의: 메인에서는 클릭 시 research.html로 이동하도록 유도하거나, 여기서 바로 모달을 띄울 수 있음.
+            // 여기서는 깔끔하게 디자인만 보여주고 클릭 시 Research 탭으로 이동하게끔 유도 (또는 detail 띄우기)
             resContainer.innerHTML += `
-                <div class="member-card">
-                    <div style="background:${item.status==='Ongoing'?'var(--primary)':'#ccc'}; height:5px; width:100%; position:absolute; top:0; left:0;"></div>
-                    <h3 style="margin-top:15px;">${item.title}</h3>
-                    <p style="font-size:0.9rem; color:#666;">${item.description.substring(0, 60)}...</p>
+                <div class="member-card" onclick="location.href='research.html'">
+                    <div style="background:var(--primary); height:4px; width:100%; position:absolute; top:0; left:0;"></div>
+                    <div style="padding-top:15px;">
+                        <h3 style="margin-bottom:10px;">${item.title}</h3>
+                        <p style="font-size:0.9rem; color:#666;">${item.description.substring(0, 80)}...</p>
+                        <div style="margin-top:15px; color:var(--primary); font-size:0.85rem; font-weight:bold;">Read More &rarr;</div>
+                    </div>
                 </div>`;
         });
     }
 }
 
-/* --- 3. Members Rendering --- */
+/* --- 3. 맴버 (Member) 렌더링 --- */
 function renderMembers() {
+    // 각 섹션 컨테이너 가져오기
     const profList = document.getElementById('prof-list');
     const phdList = document.getElementById('phd-list');
     const msList = document.getElementById('ms-list');
     const alumniList = document.getElementById('alumni-list');
 
+    // members.html이 아니면 실행 중단
     if (!profList) return;
 
-    memberData.forEach(m => {
+    if (typeof memberData === 'undefined') return;
+
+    memberData.forEach((m, index) => {
+        // 1. Alumni 처리
         if (m.role === 'alumni') {
-            alumniList.innerHTML += `
-                <div class="research-item completed" style="padding:15px; min-height:auto;">
-                    <div>
-                        <strong style="color:var(--dark); font-size:1.1rem;">${m.name}</strong><br>
-                        <span style="color:#777; font-size:0.9rem;">${m.desc}</span>
-                    </div>
-                </div>`;
-        } else if (m.role === 'prof') {
-            profList.innerHTML += createMemberCard(m);
-        } else if (m.desc.includes('Ph.D') || m.desc.includes('Direct') || m.desc.includes('Post')) {
-            phdList.innerHTML += createMemberCard(m);
-        } else if (m.desc.includes('Master') || m.desc.includes('M.S')) {
-            msList.innerHTML += createMemberCard(m);
+            if (alumniList) {
+                alumniList.innerHTML += `
+                    <div class="alumni-item">
+                        <strong>${m.name}</strong>
+                        <span>${m.desc}</span>
+                    </div>`;
+            }
+        }
+        // 2. 교수님 처리
+        else if (m.role === 'prof') {
+            profList.innerHTML += createMemberCard(m, index);
+        }
+        // 3. 학생 처리
+        else {
+            if (m.desc.includes('Ph.D') || m.desc.includes('Direct') || m.desc.includes('Post')) {
+                phdList.innerHTML += createMemberCard(m, index);
+            } else if (m.desc.includes('Master') || m.desc.includes('M.S')) {
+                msList.innerHTML += createMemberCard(m, index);
+            }
         }
     });
 }
 
-function createMemberCard(m) {
-    // Data passed via onclick using encoded JSON to avoid quote issues
-    const dataStr = encodeURIComponent(JSON.stringify(m));
+// 멤버 카드 생성 (Index를 넘겨줌 -> 오류 방지 핵심!)
+function createMemberCard(m, index) {
     return `
-        <div class="member-card" onclick="showMemberDetail('${dataStr}')">
-            <img src="${m.image}" onerror="this.src='images/member_placeholder.jpg'">
+        <div class="member-card" onclick="showMemberDetail(${index})">
+            <img src="${m.image}" onerror="this.src='images/member_placeholder.png'" alt="${m.name}">
             <span class="role-text">${m.desc.split(',')[0]}</span>
             <h3>${m.name}</h3>
-            <p style="font-size:0.85rem; color:#888;">${m.email || ''}</p>
+            <p class="email-text">${m.email || ''}</p>
         </div>`;
 }
 
-function showMemberDetail(dataStr) {
-    const m = JSON.parse(decodeURIComponent(dataStr));
+// 멤버 상세 보기 (배열 인덱스로 데이터 찾기)
+function showMemberDetail(index) {
+    const m = memberData[index]; // 데이터 직접 조회
 
-    // Construct Detail HTML
+    // 상세 정보 HTML 구성
     let extraInfo = '';
     if (m.detail) {
-        if(m.detail.education) extraInfo += `<div class="info-row"><div class="info-label">Education</div><ul class="info-list">${m.detail.education.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
-        if(m.detail.position) extraInfo += `<div class="info-row"><div class="info-label">Positions</div><ul class="info-list">${m.detail.position.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
-        if(m.detail.membership) extraInfo += `<div class="info-row"><div class="info-label">Memberships</div><ul class="info-list">${m.detail.membership.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
+        if(m.detail.education) extraInfo += `<div class="info-group"><h4>Education</h4><ul>${m.detail.education.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
+        if(m.detail.position) extraInfo += `<div class="info-group"><h4>Positions</h4><ul>${m.detail.position.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
+        if(m.detail.membership) extraInfo += `<div class="info-group"><h4>Memberships</h4><ul>${m.detail.membership.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
     } else {
-        extraInfo = `<div class="info-row"><div class="info-label">Interest</div><div>Haptics, Virtual Reality, HCI</div></div>`;
+        extraInfo = `<div class="info-group"><h4>Research Interests</h4><p>Haptics, Virtual Reality, HCI, Multimodal Interaction</p></div>`;
     }
 
     const html = `
-        <div class="detail-header-group">
-            <img src="${m.image}" class="detail-img-lg" onerror="this.src='images/member_placeholder.jpg'">
+        <div class="detail-header-center">
+            <img src="${m.image}" class="detail-img-lg" onerror="this.src='images/member_placeholder.png'">
             <h1 class="detail-title">${m.name}</h1>
             <span class="detail-subtitle">${m.desc}</span>
-            <p style="margin-top:10px; color:#666;">${m.email}</p>
+            <p class="detail-email"><i class="fas fa-envelope"></i> ${m.email}</p>
         </div>
         <div class="detail-body">
             ${extraInfo}
@@ -112,15 +146,17 @@ function showMemberDetail(dataStr) {
     openDetail(html);
 }
 
-/* --- 4. Research Rendering --- */
+/* --- 4. 연구 (Research) 렌더링 --- */
 function renderResearchPage() {
     const ongoingContainer = document.getElementById('ongoing-research');
     const completedContainer = document.getElementById('completed-research');
 
-    if(!ongoingContainer) return;
+    if (!ongoingContainer) return; // research.html이 아니면 중단
 
-    researchData.forEach(r => {
-        const cardHTML = createResearchItem(r);
+    if (typeof researchData === 'undefined') return;
+
+    researchData.forEach((r, index) => {
+        const cardHTML = createResearchItem(r, index);
         if (r.status === 'Ongoing') {
             ongoingContainer.innerHTML += cardHTML;
         } else {
@@ -129,131 +165,115 @@ function renderResearchPage() {
     });
 }
 
-function createResearchItem(r) {
-    const dataStr = encodeURIComponent(JSON.stringify(r));
+function createResearchItem(r, index) {
     return `
-        <div class="research-item ${r.status.toLowerCase()}" onclick="showResearchDetail('${dataStr}')">
+        <div class="research-item ${r.status.toLowerCase()}" onclick="showResearchDetail(${index})">
             <div class="res-info">
                 <h3>${r.title}</h3>
                 <div class="res-meta">
-                    <strong>${r.agency}</strong> | ${r.period}
+                    <span class="agency-badge">${r.agency}</span>
+                    <span class="period-text">${r.period}</span>
                 </div>
             </div>
-            <i class="fas fa-chevron-right arrow-icon"></i>
+            <div class="arrow-box"><i class="fas fa-arrow-right"></i></div>
         </div>`;
 }
 
-function showResearchDetail(dataStr) {
-    const r = JSON.parse(decodeURIComponent(dataStr));
+function showResearchDetail(index) {
+    const r = researchData[index];
     const statusColor = r.status === 'Ongoing' ? 'var(--primary)' : '#888';
 
     const html = `
-        <div class="detail-header-group" style="text-align:left;">
-            <span style="background:${statusColor}; color:white; padding:5px 15px; border-radius:15px; font-size:0.9rem;">${r.status}</span>
-            <h1 class="detail-title" style="margin-top:15px; font-size:2rem;">${r.title}</h1>
+        <div class="detail-header-left">
+            <span class="status-badge" style="background:${statusColor}">${r.status}</span>
+            <h1 class="detail-title-lg">${r.title}</h1>
         </div>
         <div class="detail-body">
-            <div class="info-row">
-                <div class="info-label">Agency</div>
-                <div>${r.agency}</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Funding Agency</label>
+                    <span>${r.agency}</span>
+                </div>
+                <div class="info-item">
+                    <label>Period</label>
+                    <span>${r.period}</span>
+                </div>
             </div>
-            <div class="info-row">
-                <div class="info-label">Period</div>
-                <div>${r.period}</div>
-            </div>
-            <hr style="margin:30px 0; border:0; border-top:1px solid #eee;">
-            <div class="info-row">
-                <div class="info-label">Description</div>
-                <div style="line-height:1.8;">${r.description}</div>
+            <div class="description-box">
+                <h4>Description</h4>
+                <p>${r.description}</p>
             </div>
         </div>
     `;
     openDetail(html);
 }
 
-/* --- 5. Others (News, Publications, Awards) --- */
-// (기존 renderPublications, renderAwardsPage 유지하되 DOM 체크 추가)
+/* --- 5. 기타 페이지 (News, Awards, Publications) --- */
 function renderNewsPage() {
-    const container = document.getElementById('news-list');
-    if(!container) return;
-    newsData.forEach(n => {
+    const container = document.getElementById('news-list-container');
+    if (!container || typeof newsData === 'undefined') return;
+
+    container.innerHTML = '';
+    newsData.forEach(item => {
         container.innerHTML += `
-            <div class="pub-item">
-                <div class="pub-year" style="font-size:1rem; color:#666; min-width:100px;">${n.date}</div>
-                <div class="pub-content">
-                    <h3>${n.title}</h3>
-                    <p>${n.content}</p>
+            <div class="pub-item news-item-style">
+                <div class="news-date-box">
+                    <strong>${item.date}</strong>
+                </div>
+                <div class="news-content-box">
+                    <h3>${item.title}</h3>
+                    <p>${item.content}</p>
                 </div>
             </div>`;
     });
 }
 
-// 4. Other Page Renderers (Placeholder)
-/* --- Home Rendering --- */
-function renderHome() {
-    // News (Top 3)
-    const newsContainer = document.getElementById('home-news-container');
-    const recentNews = newsData.slice(0, 3);
-
-    recentNews.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'research-card'; // Reuse styling
-        div.innerHTML = `
-            <div class="card-body">
-                <small style="color:var(--primary)">${item.date}</small>
-                <h3>${item.title}</h3>
-                <p>${item.content.substring(0, 60)}...</p>
-            </div>
-        `;
-        newsContainer.appendChild(div);
-    });
-
-    // Research Highlights (Top 4)
-    const researchContainer = document.getElementById('home-research-container');
-    const highlights = researchData.slice(0, 4);
-
-    highlights.forEach(item => {
-        const card = createResearchCard(item);
-        researchContainer.appendChild(card);
-    });
-}
-function renderResearchPage() {
-    const container = document.getElementById('research-list');
-    if(!container) return;
-    researchData.forEach(r => {
-        container.innerHTML += `
-            <div class="pub-item" style="display:block;">
-                <h3 style="color:var(--primary); margin-bottom:10px;">${r.title}</h3>
-                <p><strong>Agency:</strong> ${r.agency} | <strong>Period:</strong> ${r.period}</p>
-                <p style="margin-top:10px; color:#555;">${r.description}</p>
-            </div>`;
-    });
-}
 function renderAwardsPage() {
-    const container = document.getElementById('award-list');
-    if(!container) return;
-    awardData.forEach(a => {
+    const container = document.getElementById('award-list-container');
+    if (!container || typeof awardData === 'undefined') return;
+
+    container.innerHTML = '';
+    awardData.forEach(item => {
         container.innerHTML += `
-            <div class="pub-item">
-                <div class="pub-year" style="font-size:1.2rem; min-width:80px;">${a.date}</div>
+            <div class="pub-item award-item-style">
+                <div class="pub-year">${item.date}</div>
                 <div class="pub-content">
-                    <h3>${a.title}</h3>
-                    <div class="pub-venue">${a.organization}</div>
+                    <h3>${item.title}</h3>
+                    <div class="pub-venue">${item.organization}</div>
                 </div>
             </div>`;
     });
 }
-function renderNewsPage() {
-    const container = document.getElementById('news-list');
-    if(!container) return;
-    newsData.forEach(n => {
-        container.innerHTML += `
-            <div class="pub-item">
-                <div class="pub-year" style="font-size:1rem; color:#666; min-width:100px;">${n.date}</div>
-                <div class="pub-content">
-                    <h3>${n.title}</h3>
-                    <p>${n.content}</p>
-                </div>
-            </div>`;
+
+function renderPublications() {
+    // 필터링 기능이 포함된 Pubs 렌더링 (기존 로직 유지)
+    filterPubs('all', document.querySelector('.filter-btn'));
+}
+
+function filterPubs(category, btn) {
+    if (btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    const container = document.getElementById('pub-list');
+    if (!container || typeof publicationData === 'undefined') return;
+
+    container.innerHTML = '';
+
+    publicationData.forEach(pub => {
+        if (category === 'all' || pub.category === category) {
+            const linkHtml = pub.link ? `<a href="${pub.link}" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>` : '';
+            container.innerHTML += `
+                <div class="pub-item">
+                    <div class="pub-year">${pub.year}</div>
+                    <div class="pub-content">
+                        <h3>${pub.title}</h3>
+                        <div class="pub-authors">${pub.authors}</div>
+                        <div class="pub-venue">${pub.venue}</div>
+                    </div>
+                    ${linkHtml}
+                </div>`;
+        }
     });
 }

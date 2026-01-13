@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Interaction Lab</title>
+    <title>Research</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -24,8 +24,8 @@
     </nav>
 
     <div class="container">
-        <div style="text-align:center; margin-bottom:60px;">
-            <h1 style="font-size:2.5rem; color:var(--dark);">Research Projects</h1>
+        <div class="page-header">
+            <h1>Research Projects</h1>
         </div>
 
         <div class="section-header">
@@ -44,7 +44,7 @@
 
     <div id="detail-overlay" class="detail-overlay">
         <div class="detail-nav">
-            <button class="back-btn" onclick="closeDetail()"><i class="fas fa-arrow-left"></i> Back to Research</button>
+            <button class="back-btn" onclick="closeDetail()"><i class="fas fa-arrow-left"></i> Back</button>
         </div>
         <div class="detail-content" id="detail-body"></div>
     </div>
@@ -52,6 +52,6 @@
     <footer>&copy; 2026 Interaction Lab. POSTECH.</footer>
     <script src="data.js"></script>
     <script src="script.js"></script>
-    <script>renderResearchPage();</script>
+    <script>document.addEventListener('DOMContentLoaded', renderResearchPage);</script>
 </body>
 </html>
