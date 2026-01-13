@@ -23,28 +23,39 @@
         </div>
     </nav>
 
-    <div class="container" style="text-align:center; padding: 100px 20px 60px;">
-        <h1 style="font-size:3.5rem; margin-bottom:20px; color:var(--dark);">Future of <span style="color:var(--primary)">Haptic Interaction</span></h1>
-        <p style="font-size:1.2rem; color:#666; max-width:700px; margin:0 auto 50px;">
-            POSTECH Interaction Lab explores the cutting-edge of Haptics, VR/AR, and Multimodal Interfaces.
+    <div class="container" style="text-align:center; padding: 80px 24px 60px;">
+        <h1 style="font-size:3.5rem; margin-bottom:20px; font-weight:800; letter-spacing:-1px;">
+            Future of <span style="background: linear-gradient(120deg, var(--primary), var(--secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Haptic Interaction</span>
+        </h1>
+        <p style="font-size:1.25rem; color:#64748b; max-width:700px; margin:0 auto 50px;">
+            Creating immersive and realistic experiences through cutting-edge Haptics, VR/AR, and Multimodal Interfaces.
         </p>
-        <img src="images/lab_intro1.jpg" style="width:100%; max-width:900px; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.1);">
+        <img src="images/lab_intro1.jpg" style="width:100%; border-radius:24px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);">
     </div>
 
     <div class="container">
-        <div class="section-header"><h2>Latest News</h2></div>
-        <div id="home-news" class="home-news-grid"></div>
-        <br><br>
-        <div class="section-header"><h2>Research Highlights</h2></div>
-        <div id="home-research" class="member-grid"></div>
+        <div class="section-header"><h2>Lab Introduction</h2></div>
+        <div id="youtube-gallery" class="youtube-grid">
+            </div>
+
+        <div class="section-header">
+            <h2>Latest News</h2>
+            <a href="news.html" style="color:var(--primary); font-weight:600;">View All &rarr;</a>
+        </div>
+        <div id="home-news" class="news-grid">
+            </div>
+    </div>
+
+    <div id="detail-overlay" class="detail-overlay">
+        <div class="detail-nav">
+            <button class="back-btn" onclick="closeDetail()"><i class="fas fa-arrow-left"></i> Back</button>
+        </div>
+        <div class="detail-content" id="detail-body"></div>
     </div>
 
     <footer>&copy; 2026 Interaction Lab. POSTECH.</footer>
     <script src="data.js"></script>
     <script src="script.js"></script>
-    <script>
-        // DOM 로드 후 실행 보장
-        document.addEventListener('DOMContentLoaded', renderHome);
-    </script>
+    <script>document.addEventListener('DOMContentLoaded', renderHome);</script>
 </body>
 </html>

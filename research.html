@@ -24,34 +24,29 @@
     </nav>
 
     <div class="container">
-        <div class="page-header">
-            <h1>Research Projects</h1>
+        <div style="text-align:center; margin-bottom:60px;">
+            <h1 style="font-size:3rem; font-weight:800; color:var(--dark);">Research Areas</h1>
+            <p style="color:var(--gray); font-size:1.1rem;">Our core research themes and projects.</p>
         </div>
+
+        <div id="research-areas" class="research-areas-grid"></div>
+
+        <br><br>
 
         <div class="section-header">
             <h2>Ongoing Projects</h2>
-            <span class="badge">Active</span>
+            <span class="proj-status ongoing">Active</span>
         </div>
-        <div id="ongoing-research" class="research-list-container"></div>
+        <div id="ongoing-list" class="research-list"></div>
 
         <br><br>
 
         <div class="section-header">
             <h2>Completed Projects</h2>
         </div>
-        <div id="completed-research" class="research-list-container"></div>
+        <div id="completed-list" class="research-list"></div>
     </div>
 
-    <div id="detail-overlay" class="detail-overlay">
-        <div class="detail-nav">
-            <button class="back-btn" onclick="closeDetail()"><i class="fas fa-arrow-left"></i> Back</button>
-        </div>
-        <div class="detail-content" id="detail-body"></div>
-    </div>
-
-    <footer>&copy; 2026 Interaction Lab. POSTECH.</footer>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
     <script>document.addEventListener('DOMContentLoaded', renderResearchPage);</script>
 </body>
 </html>

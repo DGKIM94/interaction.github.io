@@ -1,17 +1,77 @@
-// data.js
-
-// 1. News Data (Media Coverage + Recent Awards)
+// 1. News Data (이미지 및 상세 내용 추가)
 const newsData = [
-    { date: "2025-07-08", title: "IEEE World Haptics Conference 2025 개최", content: "최승문 교수님이 General Co-chair를 맡으신 IEEE World Haptics Conference 2025가 개최되었습니다." },
-    { date: "2025-05-21", title: "한국데이터마이닝학회 춘계학술대회 초청강연", content: "최승문 교수님이 '시청각 자료로부터 햅틱 및 동작 컨텐츠 생성'을 주제로 강연했습니다." },
-    { date: "2025-03-01", title: "IEEE VR 2025 논문 발표", content: "안재혁 학생의 연구(Human Dance Haptic Motion Effects)가 IEEE VR 2025에서 발표되었습니다." },
-    { date: "2024-03-01", title: "컴퓨터공학과 주임교수 취임", content: "최승문 교수님이 포항공대 컴퓨터공학과 주임교수(Department Head)로 취임하셨습니다." },
-    { date: "2023-10-01", title: "bHaptics 사외이사 선임", content: "최승문 교수님이 bHaptics의 사외이사(Outside Director)로 선임되었습니다." },
-    { date: "2023", title: "국제 저널 최우수 논문상 수상", content: "경북매일일보 등 다수 매체 보도" },
-    { date: "2022", title: "감정을 인식하는 전자피부", content: "전자신문 등 다수 매체 보도" },
-    { date: "2021", title: "YTN 사이언스 출연", content: "디지털 촉감 시대 - 최승문 교수" }
+    {
+        id: 1,
+        date: "2025-07-08",
+        title: "IEEE World Haptics Conference 2025 Held in Seoul",
+        content: "We successfully hosted the IEEE World Haptics Conference 2025. Over 500 researchers gathered to discuss the future of haptic technologies.",
+        image: "images/lab_intro1.jpg", // 뉴스 썸네일 (폴더에 있는 이미지 사용)
+        detailContent: "Detailed report about WHC 2025. Keynote speakers included... (Long text)"
+    },
+    {
+        id: 2,
+        date: "2025-05-21",
+        title: "Invited Talk at Korea Data Mining Society",
+        content: "Prof. Choi gave an invited talk on 'Generating Haptic and Motion Content from Audiovisual Data'.",
+        image: "images/member_placeholder.png",
+        detailContent: "Slides and video recording of the talk are available..."
+    },
+    {
+        id: 3,
+        date: "2025-03-01",
+        title: "Paper Accepted at IEEE VR 2025",
+        content: "Our research on 'Human Dance Haptic Motion Effects' has been accepted for presentation at IEEE VR 2025.",
+        image: "", // 이미지가 없으면 기본 디자인
+        detailContent: "Abstract of the paper: This paper proposes a novel method..."
+    },
+    {
+        id: 4,
+        date: "2024-03-01",
+        title: "Prof. Choi Appointed as Dept. Head",
+        content: "Prof. Seungmoon Choi has been appointed as the Department Head of Computer Science and Engineering at POSTECH.",
+        image: "images/prof.jpg",
+        detailContent: "He will serve as the department head for two years..."
+    }
 ];
 
+// 2. Research Areas (NEW: 대주제 4개 - 업로드 이미지 기반)
+const researchAreas = [
+    {
+        id: "area1",
+        title: "Haptic Rendering & Perception",
+        desc: "Designing high-fidelity haptic stimuli and exploring perceptual mechanisms by integrating touch with vision and sound.",
+        thumbnail: "images/lab_intro1.jpg", // 실제 연구 썸네일로 교체 필요
+        detail: "Full description about Haptic Rendering & Perception research..."
+    },
+    {
+        id: "area2",
+        title: "Multisensory Interaction in XR",
+        desc: "Creating immersive experiences in XR through real-time fusion and automatic conversion of visual, auditory, and haptic cues.",
+        thumbnail: "images/lab_intro1.jpg",
+        detail: "Full description about Multisensory Interaction in XR..."
+    },
+    {
+        id: "area3",
+        title: "Wearable & Assistive Haptics",
+        desc: "Developing wearable tactile systems and accessibility technologies to support diverse users, including people with disabilities.",
+        thumbnail: "images/lab_intro1.jpg",
+        detail: "Full description about Wearable & Assistive Haptics..."
+    },
+    {
+        id: "area4",
+        title: "Novel Haptic Devices",
+        desc: "Designing innovative haptic devices such as smart rings and skin-based interfaces to expand the boundaries of HCI.",
+        thumbnail: "images/lab_intro1.jpg",
+        detail: "Full description about Novel Haptic Devices..."
+    }
+];
+// 5. YouTube Data (NEW)
+const youtubeVideos = [
+    { id: "video1", title: "Lab Introduction", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" }, // 예시 URL 교체 필요
+    { id: "video2", title: "Haptic Rendering Demo", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: "video3", title: "VR Interaction", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { id: "video4", title: "Research Highlights", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+];
 // 2. Member Data (CV: Advising + Current Members)
 const memberData = [
     // Professor
