@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction Lab - POSTECH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Interaction Lab Logo"> </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#members">Member</a></li>
+                <li><a href="#publications">Publication</a></li>
+                <li><a href="#awards">Award</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="container">
+            <div class="intro-text">
+                <h1>Welcome to Interaction Lab</h1>
+                <p>We explore the future of Human-Computer Interaction, focusing on Haptics, VR/AR, and Multimodal Interfaces.</p>
+            </div>
+            <div class="intro-images">
+                <img src="https://via.placeholder.com/800x400" alt="Lab Environment">
+            </div>
+
+            <div class="news-slider-container">
+                <h2>Latest News</h2>
+                <div class="news-wrapper">
+                    <button id="prevBtn" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="news-content" id="news-display">
+                        </div>
+                    <button id="nextBtn" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="section">
+        <div class="container">
+            <h2>Research</h2>
+            <div class="research-grid" id="research-list">
+                </div>
+        </div>
+        <div id="research-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3 id="modal-title"></h3>
+                <img id="modal-img" src="" alt="">
+                <p id="modal-desc"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="members" class="section">
+        <div class="container">
+            <h2>Members</h2>
+            <div class="member-group">
+                <h3>Professor</h3>
+                <div class="member-grid" id="member-prof"></div>
+            </div>
+            <div class="member-group">
+                <h3>Students</h3>
+                <div class="member-grid" id="member-student"></div>
+            </div>
+            <div class="member-group">
+                <h3>Alumni</h3>
+                <div class="member-grid" id="member-alumni"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section">
+        <div class="container">
+            <h2>Publications</h2>
+
+            <div class="pub-controls">
+                <div class="pub-tabs">
+                    <button class="tab-btn active" data-cat="all">All</button>
+                    <button class="tab-btn" data-cat="conference">Conference</button>
+                    <button class="tab-btn" data-cat="journal">Journal</button>
+                    <button class="tab-btn" data-cat="patent">Patent</button>
+                </div>
+                <div class="year-filter">
+                    <label>Year:</label>
+                    <input type="number" id="year-start" placeholder="Start (e.g. 2020)">
+                    <span>~</span>
+                    <input type="number" id="year-end" placeholder="End (e.g. 2026)">
+                    <button id="apply-filter">Apply</button>
+                </div>
+            </div>
+
+            <div class="pub-list" id="pub-list">
+                </div>
+        </div>
+    </section>
+
+    <section id="awards" class="section">
+        <div class="container">
+            <h2>Awards</h2>
+            <ul class="award-list" id="award-list">
+                </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p><strong>Location:</strong> POSTECH, Pohang, South Korea</p>
+                <p><strong>Email:</strong> contact@interactionlab.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Interaction Lab. All Rights Reserved.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
