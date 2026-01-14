@@ -457,3 +457,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+/* =========================================
+   10. Scroll Animation (Apple Style Fade-in)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    // 애니메이션 적용할 요소들 선택
+    const animatedElements = document.querySelectorAll('.news-card, .member-card, .project-card, .pub-item, .area-card, .video-wrapper, h1, h2');
+
+    const observerOptions = {
+        threshold: 0.1, // 요소가 10% 보일 때 실행
+        rootMargin: "0px 0px -50px 0px" // 약간 미리 실행
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // 한 번만 실행
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(el => {
+        el.classList.add('fade-in-up'); // 기본적으로 투명하게 내리기
+        observer.observe(el);
+    });
+});
