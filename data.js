@@ -250,7 +250,7 @@ const publicationData = [
     {
         year: 2025,
         category: "journal",
-        venueShort: "IEEE TII",
+        venueShort: "TII",
         title: "Assessment of Novel Haptic Interfaces for Digital Twin Teleoperation in High-Risk Steel Production",
         authors: "Jaehyun Park, Yeoeun Kim, Il Seop Choi, Sang-Woo Choi, Seungmoon Choi, and Keehoon Kim",
         venue: "IEEE Transactions on Industrial Informatics, vol. 21, no. 8, pp. 5954-5964",
@@ -548,7 +548,7 @@ const publicationData = [
     {
         year: 2020,
         category: "journal",
-        venueShort: "IEEE TIE",
+        venueShort: "TIE",
         title: "Soft Haptic Actuator Based on Knitted PVC Gel Fabric",
         authors: "Won-Hyeong Park, Eun-Jae Shin, Yongjae Yoo, Seungmoon Choi, and Sang-Youn Kim",
         venue: "IEEE Transactions on Industrial Electronics, vol. 67, no. 1, pp. 677-685",
@@ -568,7 +568,7 @@ const publicationData = [
     {
         year: 2019,
         category: "journal",
-        venueShort: "IEEE ToR",
+        venueShort: "ToR",
         title: "Estimating Deformed Surface Displacement from Contact Pressure Distribution",
         authors: "Hyoungkyun Kim, Seungmoon Choi, and Wan Kyun Chung",
         venue: "IEEE Transactions on Robotics, vol 35, no. 5, pp. 1260-1267",
@@ -740,7 +740,7 @@ const publicationData = [
     {
         year: 2013,
         category: "journal",
-        venueShort: "IEEE THMS",
+        venueShort: "THMS",
         title: "Haptic Assistance for Memorization of 2D Selection Sequences",
         authors: "Hojin Lee, Gabjong Han, In Lee, Sunghoon Yim, Kyungpyo Hong, Hyeseon Lee, and Seungmoon Choi",
         venue: "IEEE Transactions on Human-Machine Systems, vol. 43, no. 6, pp. 643-649",
@@ -883,7 +883,7 @@ const publicationData = [
     {
         year: 2009,
         category: "journal",
-        venueShort: "IEEE TCE",
+        venueShort: "TCE",
         title: "Gesture-Recognizing Hand-Held Interface with Vibrotactile Feedback for 3D Interaction",
         authors: "Sangki Kim, Gunhyuk Park, Sunghoon Yim, Gabjong Han, Seokhee Jeon, Seungmoon Choi, and Seungjin Choi",
         venue: "IEEE Transactions on Consumer Electronics, vol. 55, no. 3, pp. 1169-1177",
@@ -941,7 +941,7 @@ const publicationData = [
     {
         year: 2007,
         category: "journal",
-        venueShort: "IEEE Multimedia",
+        venueShort: "Multimedia",
         title: "Perceptual Issues in Haptic Digital Watermarking",
         authors: "Domenico Prattichizzo, Mauro Barni, Gloria Menegaz, Alessandro Formaglio, Hong Z. Tan and Seungmoon Choi",
         venue: "IEEE Multimedia, vol. 14, no. 3, pp. 84-91",

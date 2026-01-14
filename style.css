@@ -189,7 +189,34 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .pub-content h3 { font-size: 1.15rem; margin: 0 0 10px; color: var(--dark); line-height: 1.4; white-space: normal; word-wrap: break-word; }
 .pub-authors { color: var(--gray); font-size: 0.95rem; margin-bottom: 5px; }
 .pub-venue { font-style: italic; font-weight: 600; color: var(--secondary); }
-.pub-link { margin-left: auto; color: #ccc; font-size: 1.2rem; }
+/* style.css */
+
+/* [수정] 논문 링크 버튼 스타일 (기존 .pub-link 교체) */
+.pub-link {
+    margin-left: auto;             /* 오른쪽 끝으로 밀기 */
+    display: inline-flex;          /* 아이콘과 텍스트 정렬 */
+    align-items: center;
+    gap: 6px;                      /* 글자와 아이콘 사이 간격 */
+
+    background-color: #e0e7ff;     /* 연한 파란색 배경 (var(--primary)의 연한 버전) */
+    color: var(--primary);         /* 글자색: 파란색 */
+    padding: 8px 16px;             /* 버튼 내부 여백 */
+    border-radius: 8px;            /* 둥근 모서리 */
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;         /* 밑줄 제거 */
+    transition: all 0.2s ease;
+    white-space: nowrap;           /* 줄바꿈 방지 */
+}
+
+/* 마우스 올렸을 때 효과 */
+.pub-link:hover {
+    background-color: var(--primary); /* 진한 파란색 배경 */
+    color: white;                     /* 흰색 글자 */
+    transform: translateY(-2px);      /* 살짝 위로 떠오르는 효과 */
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); /* 그림자 */
+}
 
 /* Badges */
 .badge-container { display: flex; gap: 8px; margin-bottom: 8px; }

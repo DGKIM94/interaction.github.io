@@ -408,7 +408,11 @@ function applyPubFilter() {
     }
 
     filtered.forEach(pub => {
-        const linkHtml = pub.link ? `<a href="${pub.link}" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>` : '';
+      // [수정 후: 글씨(View) 추가]
+      const linkHtml = pub.link ?
+          `<a href="${pub.link}" class="pub-link" target="_blank">
+              <span>View</span> <i class="fas fa-external-link-alt"></i>
+           </a>` : '';
         const catBadge = `<span class="pub-badge ${pub.category}">${pub.category}</span>`;
         const venueBadge = pub.venueShort ? `<span class="pub-badge venue-tag">${pub.venueShort}</span>` : '';
 
