@@ -205,9 +205,17 @@ function createMemberCard(m, index) {
         </div>`;
 }
 
+/* [수정됨] 멤버 상세 보기 (웹사이트 링크 추가) */
 function showMemberDetail(index) {
     const m = memberData[index];
     let extraInfo = '';
+
+    // 웹사이트 링크 HTML 생성 (주소가 있을 때만 표시)
+    const websiteLink = m.website
+        ? `<a href="${m.website}" target="_blank" style="display:inline-block; margin-top:10px; color:var(--primary); font-weight:700; text-decoration:none;">
+             <i class="fas fa-globe"></i> Website
+           </a>`
+        : '';
 
     if (m.detail) {
         if (m.detail.education) extraInfo += `<div class="info-group"><h4>Education</h4><ul>${m.detail.education.map(e => `<li>${e}</li>`).join('')}</ul></div>`;
@@ -221,9 +229,9 @@ function showMemberDetail(index) {
         <div class="detail-header-center">
             <img src="${m.image}" class="detail-img-lg" onerror="this.src='images/member_placeholder.png'">
             <h1 class="detail-title" style="margin-bottom:5px;">${m.name}</h1>
-            <p style="color:#666; margin-bottom:30px;">${m.email || ''}</p>
-        </div>
-        <div class="detail-body">${extraInfo}</div>
+            <p style="color:#666; margin-bottom:5px;">${m.email || ''}</p>
+            ${websiteLink} </div>
+        <div class="detail-body" style="margin-top:30px;">${extraInfo}</div>
     `;
     openDetail(html);
 }
