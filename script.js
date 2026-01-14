@@ -39,21 +39,6 @@ function getSortedNews() {
     return [...newsData].sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
-// 학회명 정규화 및 배지 생성 헬퍼
-function getVenueTag(venueStr) {
-    if (!venueStr) return "Other";
-    if (venueStr.includes("CHI")) return "CHI";
-    if (venueStr.includes("UIST")) return "UIST";
-    if (venueStr.includes("Transactions on Haptics") || venueStr.includes("ToH")) return "ToH";
-    if (venueStr.includes("World Haptics") || venueStr.includes("WHC")) return "WHC";
-    if (venueStr.includes("Haptics Symposium")) return "Haptics Symp.";
-    if (venueStr.includes("ISMAR")) return "ISMAR";
-    if (venueStr.includes("VR")) return "IEEE VR";
-    if (venueStr.includes("EuroHaptics")) return "EuroHaptics";
-    if (venueStr.includes("Patent")) return "Patent";
-    return venueStr;
-}
-
 
 /* =========================================
    3. 메인 페이지 (Home Rendering)
@@ -71,7 +56,7 @@ function renderHome() {
         });
     }
 
-    // 2) Latest News
+    // 2) Latest News (날짜순 정렬 + 상위 3개)
     const newsContainer = document.getElementById('home-news');
     if (newsContainer && typeof newsData !== 'undefined') {
         const sorted = getSortedNews();
@@ -94,7 +79,7 @@ function renderHome() {
         });
     }
 
-    // 3) Research Highlights
+    // 3) Research Highlights (Ongoing 상위 4개)
     const resContainer = document.getElementById('home-research');
     if (resContainer && typeof researchData !== 'undefined') {
         resContainer.innerHTML = '';
@@ -245,7 +230,7 @@ function showMemberDetail(index) {
 
 
 /* =========================================
-   6. 연구 페이지 (Research Page)
+   6. 연구 페이지 (Research Page) - 수정됨
    ========================================= */
 function renderResearchPage() {
     const ongoingContainer = document.getElementById('ongoing-list');
@@ -254,12 +239,13 @@ function renderResearchPage() {
 
     if (!ongoingContainer || typeof researchData === 'undefined') return;
 
-    // Areas
+    // 1) Research Areas (클릭 가능하도록 수정)
     if (areaContainer && typeof researchAreas !== 'undefined') {
         areaContainer.innerHTML = '';
-        researchAreas.forEach((area) => {
+        researchAreas.forEach((area, idx) => {
+            // onclick 이벤트 추가
             areaContainer.innerHTML += `
-                <div class="area-card" style="cursor:default;">
+                <div class="area-card" onclick="showAreaDetail(${idx})">
                     <img src="${area.thumbnail}" class="area-img" onerror="this.src='images/lab_intro1.jpg'">
                     <div class="area-content">
                         <h3>${area.title}</h3>
@@ -269,7 +255,7 @@ function renderResearchPage() {
         });
     }
 
-    // Projects
+    // 2) Projects List
     ongoingContainer.innerHTML = '';
     completedContainer.innerHTML = '';
 
@@ -290,6 +276,19 @@ function renderResearchPage() {
         if (r.status === 'Ongoing') ongoingContainer.innerHTML += html;
         else completedContainer.innerHTML += html;
     });
+}
+
+// [NEW] Research Area 상세 보기 함수
+function showAreaDetail(index) {
+    const area = researchAreas[index];
+    const html = `
+        <img src="${area.thumbnail}" class="detail-img-lg" style="width:100%; height:300px; border-radius:16px; object-fit:cover;" onerror="this.src='images/lab_intro1.jpg'">
+        <h1 class="detail-title" style="margin-top:20px;">${area.title}</h1>
+        <div class="detail-body">
+            <p style="font-size:1.1rem; line-height:1.8; color:#444;">${area.detail || area.desc}</p>
+        </div>
+    `;
+    openDetail(html);
 }
 
 function showProjectDetail(index) {
@@ -315,13 +314,9 @@ function renderPublications() {
     const container = document.getElementById('pub-list');
     if (!container || typeof publicationData === 'undefined') return;
 
-    // 학회 필터 자동 생성
     initVenueFilter();
-
-    // 초기 렌더링
     applyPubFilter();
 
-    // 탭 클릭 이벤트
     const buttons = document.querySelectorAll('.tab-btn');
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -375,7 +370,6 @@ function applyPubFilter() {
         return catMatch && yearMatch && textMatch && venueMatch;
     });
 
-    // 최신순 정렬
     filtered.sort((a, b) => b.year - a.year);
 
     container.innerHTML = '';
