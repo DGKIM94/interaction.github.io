@@ -406,3 +406,23 @@ function renderAwardsPage() {
             </div>`;
     });
 }
+/* =========================================
+   9. 자동 네비게이션 활성화 (Auto Active Nav)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    // 현재 페이지 파일명 가져오기 (예: 'publications.html')
+    const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        // 링크의 href 속성값 (예: 'publications.html')
+        const linkPage = item.getAttribute('href');
+
+        // 현재 페이지와 링크가 일치하면 active 클래스 추가
+        if (currentPage === linkPage) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+});
