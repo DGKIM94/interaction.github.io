@@ -243,3 +243,57 @@ footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 4
     .project-card { flex-direction: column; align-items: flex-start; gap: 15px; }
     .project-card i { display: none; }
 }
+/* ... [이전 코드 유지] ... */
+
+/* --- [NEW] Publication Badges & Search --- */
+
+/* 1. 검색 및 베뉴 필터 영역 */
+.search-container {
+    display: flex; gap: 10px; width: 100%; margin-top: 15px;
+    justify-content: center;
+}
+
+.search-input {
+    flex: 2; padding: 10px 15px; border: 1px solid #e2e8f0; border-radius: 12px;
+    font-family: inherit; font-size: 0.95rem;
+}
+
+.venue-select {
+    flex: 1; padding: 10px 15px; border: 1px solid #e2e8f0; border-radius: 12px;
+    font-family: inherit; font-size: 0.95rem; background: white; cursor: pointer;
+}
+
+
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .search-container { flex-direction: column; }
+    .search-input, .venue-select { width: 100%; }
+}
+
+/* style.css 맨 아래에 추가하거나 해당 부분 수정 */
+
+/* ... [기존 코드 유지] ... */
+
+/* [NEW] Publication Badges */
+.badge-container {
+    display: flex; gap: 8px; margin-bottom: 8px;
+}
+
+.pub-badge {
+    display: inline-block; padding: 4px 10px; border-radius: 6px;
+    font-size: 0.75rem; font-weight: 700; color: white;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* 카테고리별 색상 (탭 색상과 매칭) */
+.pub-badge.journal { background: var(--primary); }      /* 파란색 */
+.pub-badge.conference { background: var(--secondary); } /* 하늘색 */
+.pub-badge.patent { background: var(--accent); }        /* 분홍색 */
+
+/* 베뉴 뱃지 (회색 톤) */
+.pub-badge.venue-tag {
+    background: #e2e8f0;
+    color: var(--dark);
+    font-weight: 600;
+}

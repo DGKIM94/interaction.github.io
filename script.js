@@ -302,7 +302,25 @@ function renderResearchPage() {
 
 function showProjectDetail(index) {
     const r = researchData[index];
-    const statusColor = r.status === 'Ongoing' ? 'var(--primary)' : '#64748b';
+    const statusColor = r.status === 'Ongoing' ? 'var(--primary)' : function initVenueFilter() {
+    const venueSelect = document.getElementById('venue-filter');
+    if (!venueSelect) return;
+
+    // 데이터에서 venueShort만 추출하여 중복 제거
+    const venueSet = new Set();
+    publicationData.forEach(pub => {
+        if (pub.venueShort) venueSet.add(pub.venueShort);
+    });
+
+    // 알파벳순 정렬
+    const sortedVenues = Array.from(venueSet).sort();
+
+    // 옵션 추가 (기존 옵션 초기화 후 추가)
+    venueSelect.innerHTML = '<option value="all">All Venues</option>';
+    sortedVenues.forEach(shortName => {
+        venueSelect.innerHTML += `<option value="${shortName}">${shortName}</option>`;
+    });
+}'#64748b';
 
     const html = `
         <span style="background:${statusColor}; color:white; padding:5px 15px; border-radius:20px; font-size:0.9rem; font-weight:bold;">${r.status}</span>
@@ -319,11 +337,54 @@ function showProjectDetail(index) {
 /* =========================================
    7. 논문 페이지 (Publications Page) - 자동 정렬 적용
    ========================================= */
+   function renderPublications() {
+       const container = document.getElementById('pub-list');
+       if (!container || typeof publicationData === 'undefined') return;
+
+       // 1. 학회 필터 옵션 자동 생성 (venueShort 기준)
+       initVenueFilter();
+
+       // 2. 초기 렌더링
+       applyPubFilter();
+
+       // 탭 클릭 이벤트
+       const buttons = document.querySelectorAll('.tab-btn');
+       buttons.forEach(btn => {
+           btn.addEventListener('click', () => {
+               buttons.forEach(b => b.classList.remove('active'));
+               btn.classList.add('active');
+               applyPubFilter();
+           });
+       });
+   }
+/* =========================================
+   7. 논문 페이지 (Publications Page)
+   ========================================= */
+
+// [NEW] 학회명 정규화 및 배지 생성 헬퍼 함수
+function getVenueTag(venueStr) {
+    if (!venueStr) return "Other";
+    // 주요 학회/저널 키워드를 미리 정의 (필요하면 여기에 추가하면 됩니다)
+    if (venueStr.includes("CHI")) return "CHI";
+    if (venueStr.includes("UIST")) return "UIST";
+    if (venueStr.includes("Transactions on Haptics") || venueStr.includes("ToH")) return "ToH";
+    if (venueStr.includes("World Haptics") || venueStr.includes("WHC")) return "WHC";
+    if (venueStr.includes("Haptics Symposium")) return "Haptics Symp.";
+    if (venueStr.includes("ISMAR")) return "ISMAR";
+    if (venueStr.includes("VR")) return "IEEE VR";
+    if (venueStr.includes("EuroHaptics")) return "EuroHaptics";
+    if (venueStr.includes("Patent")) return "Patent";
+    return venueStr; // 매칭 안되면 원본 그대로 사용
+}
+
 function renderPublications() {
     const container = document.getElementById('pub-list');
     if (!container || typeof publicationData === 'undefined') return;
 
-    // 초기 렌더링
+    // 1. 학회 필터 옵션 자동 생성 (데이터 기반)
+    initVenueFilter();
+
+    // 2. 초기 렌더링
     applyPubFilter();
 
     // 탭 클릭 이벤트 설정
@@ -337,6 +398,26 @@ function renderPublications() {
     });
 }
 
+function initVenueFilter() {
+    const venueSelect = document.getElementById('venue-filter');
+    if (!venueSelect) return;
+
+    // 데이터에서 venueShort만 추출하여 중복 제거
+    const venueSet = new Set();
+    publicationData.forEach(pub => {
+        if (pub.venueShort) venueSet.add(pub.venueShort);
+    });
+
+    // 알파벳순 정렬
+    const sortedVenues = Array.from(venueSet).sort();
+
+    // 옵션 추가 (기존 옵션 초기화 후 추가)
+    venueSelect.innerHTML = '<option value="all">All Venues</option>';
+    sortedVenues.forEach(shortName => {
+        venueSelect.innerHTML += `<option value="${shortName}">${shortName}</option>`;
+    });
+}
+
 function applyPubFilter() {
     const container = document.getElementById('pub-list');
     if (!container) return;
@@ -344,35 +425,55 @@ function applyPubFilter() {
     const activeTab = document.querySelector('.tab-btn.active');
     const category = activeTab ? activeTab.dataset.cat : 'all';
 
+    // 필터 입력값 가져오기 (없으면 기본값)
     const startInput = document.getElementById('year-start');
     const endInput = document.getElementById('year-end');
+    const searchInput = document.getElementById('search-keyword');
+    const venueSelect = document.getElementById('venue-filter');
+
     const startYear = startInput ? (parseInt(startInput.value) || 0) : 0;
     const endYear = endInput ? (parseInt(endInput.value) || 9999) : 9999;
+    const searchKeyword = searchInput ? searchInput.value.toLowerCase() : "";
+    const selectedVenue = venueSelect ? venueSelect.value : 'all';
 
-    // 1. 필터링 (카테고리 & 연도)
+    // 필터링 로직
     let filtered = publicationData.filter(pub => {
         const catMatch = category === 'all' || pub.category === category;
         const yearMatch = pub.year >= startYear && pub.year <= endYear;
-        return catMatch && yearMatch;
+        const textMatch = pub.title.toLowerCase().includes(searchKeyword) ||
+                          pub.authors.toLowerCase().includes(searchKeyword);
+        const venueMatch = selectedVenue === 'all' || pub.venueShort === selectedVenue;
+
+        return catMatch && yearMatch && textMatch && venueMatch;
     });
 
-    // 2. [수정] 연도 내림차순 (최신순) 자동 정렬
+    // 최신순 정렬
     filtered.sort((a, b) => b.year - a.year);
 
-    // 3. 렌더링
     container.innerHTML = '';
 
     if (filtered.length === 0) {
-        container.innerHTML = '<p style="text-align:center; color:#999; margin-top:30px;">No publications found.</p>';
+        container.innerHTML = '<div style="text-align:center; padding:40px; color:#999;">No publications found.</div>';
         return;
     }
 
     filtered.forEach(pub => {
         const linkHtml = pub.link ? `<a href="${pub.link}" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>` : '';
+
+        // 배지 HTML 생성 (카테고리 + 베뉴)
+        // 카테고리 배지 클래스: journal, conference, patent
+        const catBadge = `<span class="pub-badge ${pub.category}">${pub.category}</span>`;
+        // 베뉴 배지 (회색 배경 등 스타일 적용)
+        const venueBadge = pub.venueShort ? `<span class="pub-badge venue-tag">${pub.venueShort}</span>` : '';
+
         container.innerHTML += `
             <div class="pub-item">
                 <div class="pub-year">${pub.year}</div>
                 <div class="pub-content">
+                    <div class="badge-container">
+                        ${catBadge}
+                        ${venueBadge}
+                    </div>
                     <h3>${pub.title}</h3>
                     <div class="pub-authors">${pub.authors}</div>
                     <div class="pub-venue">${pub.venue}</div>
@@ -381,7 +482,6 @@ function applyPubFilter() {
             </div>`;
     });
 }
-
 
 /* =========================================
    8. 수상 페이지 (Awards Page)
