@@ -314,33 +314,55 @@ function showProjectDetail(index) {
 /* =========================================
    7. 논문 페이지 (Publications Page) - 수정됨
    ========================================= */
-function renderPublications() {
-    const container = document.getElementById('pub-list');
-    if (!container || typeof publicationData === 'undefined') return;
+   /* script.js */
 
-    // 1. 처음 로드시 All 탭 기준으로 Venue 초기화
-    updateVenueOptions('all');
-    applyPubFilter();
+   function renderPublications() {
+       const container = document.getElementById('pub-list');
+       if (!container || typeof publicationData === 'undefined') return;
 
-    // 2. 탭 버튼 이벤트 리스너 (탭 변경 시 Venue 필터도 자동 변경)
-    const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+       // --- [추가된 부분] 연도 필터 범위 자동 설정 시작 ---
+       const startInput = document.getElementById('year-start');
+       const endInput = document.getElementById('year-end');
 
-            // 클릭된 탭의 카테고리(예: 'conference') 가져오기
-            const category = btn.dataset.cat;
+       if (startInput && endInput && publicationData.length > 0) {
+           // 1. 데이터에서 연도만 뽑아서 최소/최대값 계산
+           const years = publicationData.map(p => p.year);
+           const minYear = Math.min(...years); // 가장 옛날 연도
+           const maxYear = Math.max(...years); // 가장 최신 연도
 
-            // Venue 목록을 해당 카테고리에 맞게 갱신
-            updateVenueOptions(category);
+           // 2. 입력칸의 min, max 속성 설정 (화살표 제한)
+           startInput.min = minYear;
+           startInput.max = maxYear;
+           endInput.min = minYear;
+           endInput.max = maxYear;
 
-            // 필터 적용
-            applyPubFilter();
-        });
-    });
-}
+           // 3. (선택사항) 처음에 값이 비어있다면 기본값 채워주기
+            if (!startInput.value) startInput.value = minYear;
+            if (!endInput.value) endInput.value = maxYear;
 
+           // 4. 플레이스홀더(안내 문구)도 맞춰주면 좋음
+           startInput.placeholder = minYear;
+           endInput.placeholder = maxYear;
+       }
+       // --- [추가된 부분] 끝 ---
+
+       // 1. 처음 로드시 'All' 탭 기준 Venue 목록 생성
+       updateVenueOptions('all');
+       applyPubFilter();
+
+       // 2. 탭 버튼 이벤트 리스너
+       const buttons = document.querySelectorAll('.tab-btn');
+       buttons.forEach(btn => {
+           btn.addEventListener('click', () => {
+               buttons.forEach(b => b.classList.remove('active'));
+               btn.classList.add('active');
+
+               const category = btn.dataset.cat;
+               updateVenueOptions(category);
+               applyPubFilter();
+           });
+       });
+   }
 // [새로 추가] 카테고리에 맞는 Venue만 셀렉트 박스에 넣기
 function updateVenueOptions(category) {
     const venueSelect = document.getElementById('venue-filter');

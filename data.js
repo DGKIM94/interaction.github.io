@@ -1497,7 +1497,7 @@ const publicationData = [
       title: "👑 A Longitudinal Study for Haptic Pitch Correction Guidance for String Instrument Players",
       authors: "Yongjae Yoo and Seungmoon Choi",
       venue: "IEEE World Haptics Conference (Best Poster Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/7989906"
+      link: "https://ieeexplore.ieee.org/document/7989897"
   },
   {
       year: 2017,
@@ -1526,7 +1526,7 @@ const publicationData = [
       title: "Interactive Motion Effects Design for a Moving Object in 4D Films",
       authors: "Jaebong Lee, Bohyung Han, and Seungmoon Choi",
       venue: "ACM Symposium on Virtual Reality Software and Technology",
-      link: "https://doi.org/10.1145/2993369.2993380"
+      link: "https://dl.acm.org/doi/10.1145/2993369.2993389"
   },
   {
       year: 2016,
@@ -1600,7 +1600,7 @@ const publicationData = [
       title: "Edge Flows: Improving Information Transmission in Mobile Devices Using Two-Dimensional Vibrotactile Flows",
       authors: "Jongman Seo and Seungmoon Choi",
       venue: "IEEE World Haptics Conference",
-      link: "https://ieeexplore.ieee.org/document/7177685"
+      link: "https://ieeexplore.ieee.org/document/7177686"
   },
   {
       year: 2015,
@@ -1620,7 +1620,7 @@ const publicationData = [
       title: "Modeling of the Influence of Tumor on Contact Pressure in Medical Palpation for the Palpation Training System Using FEM Simulation",
       authors: "Hyoungkyun Kim, Seungmoon Choi, and Wan Kyun Chung",
       venue: "International Conference on Ubiquitous Robots and Ambient Intelligence",
-      link: "https://ieeexplore.ieee.org/document/7057739"
+      link: "https://ieeexplore.ieee.org/abstract/document/7057397"
   },
   {
       year: 2014,
@@ -1629,7 +1629,7 @@ const publicationData = [
       title: "An Explorative Study on Crossmodal Congruence Between Visual and Tactile Icons Based on Emotional Responses",
       authors: "Taekbeom Yoo, Yongjae Yoo, and Seungmoon Choi",
       venue: "ACM International Conference on Multimodal Interaction",
-      link: "https://doi.org/10.1145/2663204.2663273"
+      link: "https://dl.acm.org/doi/10.1145/2663204.2663231"
   },
   {
       year: 2014,
@@ -1665,7 +1665,7 @@ const publicationData = [
       title: "👑 PreventFHP: Detection and Warning System for Forward Head Posture",
       authors: "Jaebong Lee, Eunji Cho, Minjae Kim, Yongmin Yoon, and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Best Teaser Award)",
-      link: "https://ieeexplore.ieee.org/document/6775469"
+      link: "https://ieeexplore.ieee.org/document/6775470"
   },
   {
       year: 2014,
@@ -1674,7 +1674,7 @@ const publicationData = [
       title: "👑 Vibrotactile Guidance for Drumming Learning: Method and Perceptual Assessment",
       authors: "In Lee and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Candidate for Best Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/6775445"
+      link: "https://ieeexplore.ieee.org/document/6775447"
   },
   {
       year: 2014,
@@ -1683,7 +1683,7 @@ const publicationData = [
       title: "👑 Combining Haptic Guidance and Haptic Disturbance: An Initial Study of Hybrid Haptic Assistance for Virtual Steering Task",
       authors: "Hojin Lee and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Candidate for Best Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/6775447"
+      link: "https://ieeexplore.ieee.org/document/6775449"
   },
 
   // --- 2013 ---
@@ -1703,7 +1703,7 @@ const publicationData = [
       title: "Real-Time Perception-Level Translation from Audio Signals to Vibrotactile Effects",
       authors: "Jaebong Lee and Seungmoon Choi",
       venue: "ACM CHI Conference on Human Factors in Computing Systems",
-      link: "https://doi.org/10.1145/2470654.2481355"
+      link: "https://dl.acm.org/doi/10.1145/2470654.2481354"
   },
   {
       year: 2013,
@@ -1712,7 +1712,7 @@ const publicationData = [
       title: "Demonstration-Based Vibrotactile Pattern Authoring",
       authors: "Kyungpyo Hong, Jaebong Lee, and Seungmoon Choi",
       venue: "International Conference on Tangible, Embedded and Embodied Interaction",
-      link: "https://doi.org/10.1145/2460625.2460659"
+      link: "https://dl.acm.org/doi/10.1145/2460625.2460660"
   },
 
   // --- 2012 ---
@@ -1723,7 +1723,7 @@ const publicationData = [
       title: "Evaluating the Effectiveness of Haptic Feedback on a Steering Wheel for BSW",
       authors: "Jaemin Chun, Gunhyuk Park, Seungwhan Oh, Jongman Seo, in Lee, Seungmoon Choi, and Sung H. Han",
       venue: "International Conference on Applied Human Factors and Ergonomics",
-      link: "https://dl.acm.org/doi/abs/10.5555/2676722.2676997"
+      link: "https://www.taylorfrancis.com/chapters/edit/10.1201/b12322-48/evaluating-effectiveness-haptic-feedback-steering-wheel-bsw-jaemin-chun-gunhyuk-park-seunghwan-oh-jongman-seo-lee-seungmoon-choi-sung-han"
   },
   {
       year: 2012,
@@ -1732,7 +1732,7 @@ const publicationData = [
       title: "Perceived Intensity of Tool-Transmitted Vibration: Effects of Amplitude and Frequency",
       authors: "Inwook Hwang, Jongman Seo, Myongchan Kim, and Seungmoon Choi",
       venue: "IEEE International Symposium on Haptic Visual-Audio Environments and Games",
-      link: "https://ieeexplore.ieee.org/document/6374421"
+      link: "https://ieeexplore.ieee.org/document/6374438/"
   },
   {
       year: 2012,
@@ -1741,7 +1741,7 @@ const publicationData = [
       title: "Evaluation of Driving Skills Using an HMM-based Distance Measure",
       authors: "Reza Haghighi Osgouei and Seungmoon Choi",
       venue: "IEEE International Symposium on Haptic Visual-Audio Environments and Games",
-      link: "https://ieeexplore.ieee.org/document/6374429"
+      link: "https://ieeexplore.ieee.org/document/6374445"
   },
   {
       year: 2012,
@@ -1750,7 +1750,7 @@ const publicationData = [
       title: "Low Bitrate Source-filter Model Based Compression of Vibrotactile Texture Signals in Haptic Teleoperation",
       authors: "Rahul Chaudhari, Burak Çizmeci, Katherine J. Kuchenbecker, Seungmoon Choi, and Eckehard Steinbach",
       venue: "ACM International Conference on Multimedia",
-      link: "https://doi.org/10.1145/2393347.2393405"
+      link: "https://dl.acm.org/doi/10.1145/2393347.2393407"
   },
   {
       year: 2012,
@@ -1759,7 +1759,7 @@ const publicationData = [
       title: "Effect of Mechanical Ground on the Vibrotactile Perceived Intensity of a Handheld Object",
       authors: "Inwook Hwang, and Seungmoon Choi",
       venue: "EuroHaptics Conference",
-      link: "https://link.springer.com/chapter/10.1007/978-3-642-31401-8_9"
+      link: "https://link.springer.com/chapter/10.1007/978-3-642-31404-9_11"
   },
   {
       year: 2012,
@@ -1786,7 +1786,7 @@ const publicationData = [
       title: "Guidance Methods for Bimanual Timing Tasks",
       authors: "In Lee, Kyungpyo Hong, and Seungmoon Choi",
       venue: "IEEE Haptics Symposium",
-      link: "https://ieeexplore.ieee.org/document/6183803"
+      link: "https://ieeexplore.ieee.org/document/6183805"
   },
   {
       year: 2012,
@@ -1795,7 +1795,7 @@ const publicationData = [
       title: "Evaluation of Vibrotactile Pattern Design Using Vibrotactile Score",
       authors: "Jaebong Lee and Seungmoon Choi",
       venue: "IEEE Haptics Symposium",
-      link: "https://ieeexplore.ieee.org/document/6183794"
+      link: "https://ieeexplore.ieee.org/document/6183796"
   },
   {
       year: 2012,
@@ -1815,7 +1815,7 @@ const publicationData = [
       title: "Effect of Active and Passive Haptic Sensory Information on Memory for 2D Sequential Selection Task",
       authors: "Hojin Lee, Gabjong Han, in Lee, Sunghoon Yim, Kyungpyo Hong, and Seungmoon Choi",
       venue: "International Symposium on Ubiquitous Virtual Reality",
-      link: "https://ieeexplore.ieee.org/document/5973703"
+      link: "https://ieeexplore.ieee.org/abstract/document/6068306"
   },
   {
       year: 2011,
@@ -1833,7 +1833,7 @@ const publicationData = [
       title: "Tactile Effect Design and Evaluation for Virtual Buttons on a Mobile Device Touchscreen",
       authors: "Gunhyuk Park, Seungmoon Choi, Kyunghun Hwang, Sunwook Kim, Jaecheon Sa, and Moonchae Joung",
       venue: "International Conference on Human-Computer Interaction with Mobile Devices and Services",
-      link: "https://doi.org/10.1145/2037373.2037377"
+      link: "https://dl.acm.org/doi/10.1145/2037373.2037376"
   },
   {
       year: 2011,
@@ -1842,7 +1842,7 @@ const publicationData = [
       title: "Extensions to Haptic Augmented Reality: Modulating Friction and Weight",
       authors: "Seokhee Jeon, Jean-Claude Metzger, Seungmoon Choi, and Matthias Harders",
       venue: "IEEE World Haptics Conference",
-      link: "https://ieeexplore.ieee.org/document/5945492"
+      link: "https://ieeexplore.ieee.org/document/5945490"
   },
   {
       year: 2011,
@@ -1851,7 +1851,7 @@ const publicationData = [
       title: "TAXEL: Initial Progress Toward Self-Morphing Visio-Haptic Interface",
       authors: "Ki-Uk Kyung, Jeong Mook Lim, Yo-An Lim, Suntak Park, Seung Koo Park, Inwook Hwang, Seungmoon Choi, Jongman Seo, Sang-Youn Kim, Tae-Heon Yang, and Dong-Soo Kwon",
       venue: "IEEE World Haptics Conference",
-      link: "https://ieeexplore.ieee.org/document/5945460"
+      link: "https://ieeexplore.ieee.org/document/5945458"
   },
   {
       year: 2011,
@@ -1869,7 +1869,7 @@ const publicationData = [
       title: "👑 Perceptual Space of Amplitude-Modulated Vibrotactile Stimuli",
       authors: "Gunhyuk Park and Seungmoon Choi",
       venue: "IEEE World Haptics Conference (Candidate for Best Student Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/5945464"
+      link: "https://ieeexplore.ieee.org/document/5945462"
   },
 
   // --- 2010 ---
@@ -1880,7 +1880,7 @@ const publicationData = [
       title: "Improving Vibrotactile Pattern Identification for Mobile Devices Using Perceptually Transparent Rendering",
       authors: "Jonghyun Ryu, Chil-Woo Lee, and Seungmoon Choi",
       venue: "International Conference on Human-Computer Interaction with Mobile Devices and Services",
-      link: "https://doi.org/10.1145/1851600.1851644"
+      link: "https://dl.acm.org/doi/10.1145/1851600.1851643"
   },
   {
       year: 2010,
@@ -1889,7 +1889,7 @@ const publicationData = [
       title: "Extended Rate-Hardness: A Measure for Perceived Hardness",
       authors: "Gabjong Han and Seungmoon Choi",
       venue: "EuroHaptics Conference",
-      link: "https://link.springer.com/chapter/10.1007/978-3-642-14064-8_17"
+      link: "https://link.springer.com/chapter/10.1007/978-3-642-14064-8_18"
   },
   {
       year: 2010,
@@ -1898,7 +1898,7 @@ const publicationData = [
       title: "👑 Initial Study of Creating Linearly Moving Vibrotactile Sensation on Mobile Device",
       authors: "Jongman Seo and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Candidate for Best Poster Award)",
-      link: "https://ieeexplore.ieee.org/document/5444665"
+      link: ""
   },
   {
       year: 2010,
@@ -1907,7 +1907,7 @@ const publicationData = [
       title: "Effects of Kinesthetic Information on Memory Chunking in 2D Sequential Selection Task",
       authors: "Gabjong Han, Jaebong Lee, in Lee, Seokhee Jeon, and Seungmoon Choi",
       venue: "IEEE Haptics Symposium",
-      link: "https://ieeexplore.ieee.org/document/5444662"
+      link: "https://www.researchgate.net/publication/224129908_Effects_of_kinesthetic_information_on_working_memory_for_2D_sequential_selection_task"
   },
   {
       year: 2010,
@@ -1916,7 +1916,7 @@ const publicationData = [
       title: "👑 Stiffness Modulation for Haptic Augmented Reality: Extension to 3D Interaction",
       authors: "Seokhee Jeon and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Best Demo Award)",
-      link: "https://ieeexplore.ieee.org/document/5444638"
+      link: "https://ieeexplore.ieee.org/document/5444645/"
   },
   {
       year: 2010,
@@ -1925,7 +1925,7 @@ const publicationData = [
       title: "👑 Effects of Haptic Guidance and Disturbance on Motor Learning: Potential Advantage of Haptic Disturbance",
       authors: "Jaebong Lee and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Candidate for Best Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/5444634"
+      link: "https://ieeexplore.ieee.org/document/5444635"
   },
   {
       year: 2010,
@@ -1934,7 +1934,7 @@ const publicationData = [
       title: "👑 Perceptual Space and Adjective Rating of Sinusoidal Vibration Perceived via Mobile Device",
       authors: "Inwook Hwang and Seungmoon Choi",
       venue: "IEEE Haptics Symposium (Candidate for Best Student Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/5444658"
+      link: "https://ieeexplore.ieee.org/document/5444692"
   },
 
   // --- 2009 ---
@@ -1945,7 +1945,7 @@ const publicationData = [
       title: "Improving Perceived Hardness of Haptic Rendering via Stiffness Shifting: An Initial Study",
       authors: "Gabjong Han, Seokhee Jeon, and Seungmoon Choi",
       venue: "ACM Symposium on Virtual Reality Software and Technology",
-      link: "https://doi.org/10.1145/1643928.1643949"
+      link: "https://dl.acm.org/doi/10.1145/1643928.1643949"
   },
   {
       year: 2009,
@@ -1954,7 +1954,7 @@ const publicationData = [
       title: "Vibrotactile Score: A Score Metaphor for Designing Vibrotactile Patterns",
       authors: "Jaebong Lee, Jonghyun Ryu, and Seungmoon Choi",
       venue: "IEEE World Haptics Conference",
-      link: "https://ieeexplore.ieee.org/document/4810860"
+      link: "https://dl.acm.org/doi/10.1109/WHC.2009.4810816"
   },
   {
       year: 2009,
@@ -1963,7 +1963,7 @@ const publicationData = [
       title: "👑 System Improvements in Mobile Haptic Interface",
       authors: "In Lee, Inwook Hwang, Kyung-Lyong Han, Oh Kyu Choi, Seungmoon Choi, and Jin S. Lee",
       venue: "IEEE World Haptics Conference (Best Student Paper Award)",
-      link: "https://ieeexplore.ieee.org/document/4810853"
+      link: "https://ieeexplore.ieee.org/document/4810834"
   },
 
   // --- 2008 ---
@@ -1983,7 +1983,7 @@ const publicationData = [
       title: "Design and Control of Omni-Directional Mobile Robot for Mobile Haptic Interface",
       authors: "Kyung-Lyong Han, Oh Kyu Choi, in Lee, Inwook Hwang, Jin S. Lee, and Seungmoon Choi",
       venue: "International Conference on Control, Automation, and Systems",
-      link: "https://ieeexplore.ieee.org/document/4694432"
+      link: "https://ieeexplore.ieee.org/document/4694349"
   },
   {
       year: 2008,
@@ -1992,7 +1992,7 @@ const publicationData = [
       title: "Benefits of Perceptually Transparent Vibration Rendering in Mobile Device",
       authors: "Jonghyun Ryu and Seungmoon Choi",
       venue: "EuroHaptics Conference",
-      link: "https://link.springer.com/chapter/10.1007/978-3-540-69057-3_92"
+      link: "https://link.springer.com/chapter/10.1007/978-3-540-69057-3_90"
   },
   {
       year: 2008,
@@ -2001,7 +2001,7 @@ const publicationData = [
       title: "Haptic Pottery Modeling Using Circular Sector Element Method",
       authors: "Jaebong Lee, Gabjong Han, and Seungmoon Choi",
       venue: "EuroHaptics Conference",
-      link: "https://link.springer.com/chapter/10.1007/978-3-540-69057-3_87"
+      link: "https://link.springer.com/chapter/10.1007/978-3-540-69057-3_84"
   },
   {
       year: 2008,
@@ -2010,7 +2010,7 @@ const publicationData = [
       title: "Modulating Real Object Stiffness for Haptic Augmented Reality",
       authors: "Seokhee Jeon and Seungmoon Choi",
       venue: "EuroHaptics Conference",
-      link: "https://link.springer.com/chapter/10.1007/978-3-540-69057-3_79"
+      link: "https://link.springer.com/chapter/10.1007/978-3-540-69057-3_78"
   },
   {
       year: 2008,
@@ -2028,7 +2028,7 @@ const publicationData = [
       title: "Haptizing Surface Topography with Varying Stiffness Based on Force Constancy: Extended Algorithm",
       authors: "Jaeyoung Cheon, Inwook Hwang, Gabjong Han, and Seungmoon Choi",
       venue: "IEEE Haptics Symposium",
-      link: "https://ieeexplore.ieee.org/document/4479947"
+      link: "https://ieeexplore.ieee.org/document/4479942"
   },
 
   // --- 2007 ---
@@ -2039,7 +2039,7 @@ const publicationData = [
       title: "👑 Real-Time Tracking of Visually Attended Objects in Interactive Virtual Environments",
       authors: "Sungkil Lee, Gerard J. Kim, and Seungmoon Choi",
       venue: "ACM Symposium on Virtual Reality Software and Technology (Candidate for Best Paper Award)",
-      link: "https://doi.org/10.1145/1315184.1315190"
+      link: "https://ieeexplore.ieee.org/document/4531740"
   },
   {
       year: 2007,
@@ -2048,7 +2048,7 @@ const publicationData = [
       title: "Discrimination of Virtual Environments Under Visual and Haptic Rendering Delays",
       authors: "In Lee and Seungmoon Choi",
       venue: "International Conference on Frontiers in the Convergence of Bioscience and Information Technologies",
-      link: "https://ieeexplore.ieee.org/document/4425429"
+      link: "https://ieeexplore.ieee.org/document/4524165"
   },
   {
       year: 2007,
@@ -2057,7 +2057,7 @@ const publicationData = [
       title: "Perceptually Transparent Vibration Rendering Using a Vibration Motor for Haptic Interaction",
       authors: "Jonghyun Ryu, Jaehoon Jung, Seojoon Kim, and Seungmoon Choi",
       venue: "IEEE International Symposium on Robot & Human Interactive Communication",
-      link: "https://ieeexplore.ieee.org/document/4415102"
+      link: "https://ieeexplore.ieee.org/document/4415100/"
   },
   {
       year: 2007,
@@ -2066,7 +2066,7 @@ const publicationData = [
       title: "AR Pottery: Experiencing Pottery Making in the Augmented Space",
       authors: "Gabjong Han, Jane Hwang, Seungmoon Choi, and Gerard J. Kim",
       venue: "Human-Computer Interaction International",
-      link: "https://link.springer.com/chapter/10.1007/978-3-540-73335-5_70"
+      link: "https://dl.acm.org/doi/10.5555/1770090.17701630"
   },
   {
       year: 2007,
@@ -2084,7 +2084,7 @@ const publicationData = [
       title: "A Noble Bilateral Teleoperation System for Human Guided Spinal Fusion",
       authors: "Keehoon Kim, Jongwon Lee, Wan Kyun Chung, Seungmoon Choi, Young Soo Kim, and Il Hong Suh",
       venue: "IEEE International Conference on Robotics and Automation",
-      link: "https://ieeexplore.ieee.org/document/4209230"
+      link: "https://ieeexplore.ieee.org/document/4209210"
   },
   {
       year: 2007,
@@ -2093,7 +2093,7 @@ const publicationData = [
       title: "Mechanical Impedance of the Hand Holding a Spherical Tool at Threshold and Suprathreshold Stimulation Levels",
       authors: "Ali Israr, Seungmoon Choi, and Hong Z. Tan",
       venue: "IEEE World Haptics Conference",
-      link: "https://ieeexplore.ieee.org/document/4145151"
+      link: "https://ieeexplore.ieee.org/document/4145151/"
   },
   {
       year: 2007,
