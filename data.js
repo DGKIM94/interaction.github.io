@@ -960,7 +960,6 @@ const journalPapers = [
 
 ];
 /* data.js - Poster & Demo Papers (Based on CV) */
-
 const posterDemoPapers = [
     // --- 2025 ---
     {
@@ -2696,7 +2695,312 @@ const conferencePapers[
       link: "https://ieeexplore.ieee.org/document/4145156"
   }
 ];
+/* data.js - Patent Data */
 
+const patentData = [
+    // --- Registered International Patents ---
+    {
+        year: 2025,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Haptic Feedback Control Apparatus and Method Thereof",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 2025/0195997 A1)",
+        link: "https://patents.google.com/patent/US20250195997A1"
+    },
+    {
+        year: 2024,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Method and Apparatus for Generating and Merging Image-based Texture Motion",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 12,067,168 B2)",
+        link: "https://patents.google.com/patent/US12067168B2"
+    },
+    {
+        year: 2018,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Apparatus for Generating Motion Effects and Computer Readable Medium for the Same",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 10,147,213 B2)",
+        link: "https://patents.google.com/patent/US10147213B2"
+    },
+    {
+        year: 2018,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Somatic Sensation Induction System Using Pulse Laser and Medium of High Absorption Coefficient",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 10,058,712 B2)",
+        link: "https://patents.google.com/patent/US10058712B2"
+    },
+    {
+        year: 2018,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Method and Device for Generating Vibration Based on an Adjective",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 9,880,570 B2)",
+        link: "https://patents.google.com/patent/US9880570B2"
+    },
+    {
+        year: 2017,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Method and Device for Generating Vibration by Using Adjective Space on a Timeline",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 9,600,984 B2)",
+        link: "https://patents.google.com/patent/US9600984B2"
+    },
+    {
+        year: 2017,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Method and Apparatus for Generating Haptic Signal with Auditory Saliency Estimation",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 9,640,047 B2)",
+        link: "https://patents.google.com/patent/US9640047B2"
+    },
+    {
+        year: 2015,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Laser Apparatus Capable of Controlling a Photo−mechanical Effect and Method Using the Same",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 9,092,955 B2)",
+        link: "https://patents.google.com/patent/US9092955B2"
+    },
+    {
+        year: 2011,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Vibration Authoring Tool, Vibration Authoring Method, and Storage Medium Recorded with the Same",
+        authors: "Seungmoon Choi",
+        venue: "Registered International Patent (US 7,999,166 B2)",
+        link: "https://patents.google.com/patent/US7999166B2"
+    },
+
+    // --- Applied International Patents ---
+    {
+        year: 2019,
+        category: "patent",
+        venueShort: "Int. Patent",
+        title: "Apparatus and Method for Providing Virtual Texture",
+        authors: "Seungmoon Choi",
+        venue: "Applied International Patent (US 14/962,055)",
+        link: ""
+    },
+
+    // --- Registered Domestic Patents (Korea) ---
+    {
+        year: 2025,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Method and Device for Transforming DoF in Mulse-media System (다중감각미디어시스템에서 자유도변환방법 및 장치)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-2806247)",
+        link: ""
+    },
+    {
+        year: 2023,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Method and Device for Providing Motion Effect (모션효과제공장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-2575318)",
+        link: ""
+    },
+    {
+        year: 2021,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Object Identification Apparatus and Method, System Comprising the Same (물체 인식 장치 및 방법 그리고 이를 포함하는 물체 인식 시스템)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-2272641)",
+        link: ""
+    },
+    {
+        year: 2021,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus and Method for Providing a Texture Signal (질감 신호 제공 장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-2247521)",
+        link: ""
+    },
+    {
+        year: 2020,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Method and Device for Generating Vibration Using Adjective (형용사를 이용한 진동 생성 방법 및 디바이스)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-2191968)",
+        link: ""
+    },
+    {
+        year: 2019,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus and Method for Providing a Virtual Texture (재질감 제공 장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-2045891)",
+        link: ""
+    },
+    {
+        year: 2018,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Navigating Apparatus and System by Inducing Tactile Sense (체감각 유도 방식의 길 안내 장치 및 시스템)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1825674)",
+        link: ""
+    },
+    {
+        year: 2017,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "The Method of Decompositioning Contact Force and the Haptic Apparatus Thereof (접촉힘을 분해하는 방법 및 이를 적용한 햅틱 장치)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1728733)",
+        link: ""
+    },
+    {
+        year: 2016,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus and Method for Generating Motion Effects by Analyzing Motion of Object (객체의 움직임 분석을 이용한 모션 효과 생성 장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1642200)",
+        link: ""
+    },
+    {
+        year: 2016,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus for Generating Motion Effects and Computer Readable Medium for the Same (모션 효과 생성 장치 및 이를 위한 컴퓨터로 읽을 수 있는 기록매체)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1642198)",
+        link: ""
+    },
+    {
+        year: 2016,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Method for Haptic Signal Generation Based on Auditory Saliency and Apparatus Therefor (청각 주목도에 기반한 햅틱 신호 생성 방법 및 이를 위한 장치)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1641418)",
+        link: ""
+    },
+    {
+        year: 2015,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "System for Inducing Tactile Sense Using Pulse Laser and Medium with High Absorption Coefficient (펄스 레이저 및 흡수계수가 높은 매질을 이용한 체성감각 유도 시스템)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1581763)",
+        link: ""
+    },
+    {
+        year: 2015,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus and Method for Outputting Braille Using Laser Beam (레이저 빔을 이용한 점자 출력 장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1523619)",
+        link: ""
+    },
+    {
+        year: 2015,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus and Method for Providing Motion Haptic Effect Using Video Analysis (영상 분석을 통하여 모션 햅틱 효과를 제공하는 장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1507242)",
+        link: ""
+    },
+    {
+        year: 2015,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Surgical Robot Capable of Providing Tactile Sense Using Laser Beam (레이저 빔을 이용하여 촉감을 제공할 수 있는 수술용 로봇 장치)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1483428)",
+        link: ""
+    },
+    {
+        year: 2014,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Method for Converting Audio Signal to Haptic Signal and Apparatus for Performing the Same (오디오 신호의 햅틱 신호 변환 방법 및 이를 수행하는 장치)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1427993)",
+        link: ""
+    },
+    {
+        year: 2014,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Electronic Device for Providing Tactile Sense Using Laser and Method Using the Same (레이저를 이용하여 촉감을 제공하는 전자 장치 및 이를 이용한 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1375613)",
+        link: ""
+    },
+    {
+        year: 2013,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Apparatus and Method for Guiding State Information of Vehicle (운송 장치의 상태 정보를 안내하는 안내 장치 및 방법)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1345310)",
+        link: ""
+    },
+    {
+        year: 2013,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Laser Apparatus Capable of Pulsed Laser Beam Diameter for Regulation of Tactile Sense and Method Using the Same",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1340359)",
+        link: ""
+    },
+    {
+        year: 2013,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Laser Apparatus Capable of Regulating Photo-Mechanical Effect and Method Using the Same",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1340361)",
+        link: ""
+    },
+    {
+        year: 2013,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Method and Apparatus for Providing Tactile Effect (촉각 효과의 제공 방법 및 장치)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1305735)",
+        link: ""
+    },
+    {
+        year: 2011,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Vibration Authoring Tool (진동 저작 도구)",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-1080989)",
+        link: ""
+    },
+    {
+        year: 2008,
+        category: "patent",
+        venueShort: "Dom. Patent",
+        title: "Device and Method for Controlling an Electric Device Using an Inertial Sensor and a Camera",
+        authors: "Seungmoon Choi",
+        venue: "Registered Domestic Patent (KR 10-0837819)",
+        link: ""
+    }
+];
 // ... [Awards 데이터 등 나머지는 기존 유지] ...
 
 // 5. Awards Data (Selected)
@@ -2716,5 +3020,5 @@ const awardData = [
 const publicationData = [
     ...journalPapers,
     ...conferencePapers,
-    ...posterDemoPapers  // 이 부분 추가
+    ...posterDemoPapers, patentData// 이 부분 추가
 ];
