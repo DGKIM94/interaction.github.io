@@ -3,9 +3,7 @@
 
 :root {
     --primary: #6366f1;       /* Indigo */
-    --primary-light: #818cf8;
     --secondary: #0ea5e9;     /* Sky */
-    --accent: #ff6b6b;        /* Rose */
     --dark: #0f172a;          /* Slate 900 */
     --gray: #64748b;          /* Slate 500 */
     --bg-body: #f8fafc;       /* Slate 50 */
@@ -13,14 +11,14 @@
     --radius: 16px;
     --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
     --shadow-hover: 0 15px 30px rgba(99, 102, 241, 0.2);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.3s ease;
 }
 
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; /* 모바일 터치 하이라이트 제거 */ }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: var(--dark); margin: 0; line-height: 1.6; overflow-x: hidden; }
 a { text-decoration: none; color: inherit; transition: var(--transition); }
-* { box-sizing: border-box; }
 
-/* --- Navbar (수정됨: 모바일 햄버거 버튼 지원) --- */
+/* --- Navbar --- */
 .navbar {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -30,10 +28,12 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .nav-container {
     max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 70px;
     display: flex; justify-content: space-between; align-items: center;
-    position: relative; /* 모바일 메뉴 위치 기준 */
+    position: relative;
 }
-.logo img { height: 40px; transition: transform 0.3s; }
-.logo img:hover { transform: scale(1.05); }
+.logo img { height: 40px; }
+
+/* 햄버거 버튼 (데스크탑에선 숨김) */
+.menu-toggle { display: none; font-size: 1.5rem; color: var(--dark); cursor: pointer; padding: 10px; }
 
 /* 데스크탑 메뉴 */
 .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
@@ -46,31 +46,36 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 }
 .nav-item:hover::after, .nav-item.active::after { width: 100%; }
 
-/* 모바일 메뉴 토글 버튼 (기본 숨김) */
-.menu-toggle { display: none; font-size: 1.5rem; color: var(--dark); cursor: pointer; }
+/* --- Layout --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+.page-header { text-align: center; margin-bottom: 60px; }
+.page-header h1 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+.section-header { margin-bottom: 40px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+.section-header h2 { font-size: 1.8rem; font-weight: 700; color: var(--dark); margin: 0; }
 
-/* --- YouTube Grid (수정됨: 중앙 정렬) --- */
+/* --- YouTube Grid (수정: 꽉 찬 화면) --- */
 .youtube-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* PC: 무조건 4개 1줄 */
     gap: 20px;
     margin-bottom: 60px;
-    justify-content: center; /* 그리드 전체 중앙 정렬 */
 }
 .video-wrapper {
-    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius);
-    box-shadow: var(--shadow-sm); transition: transform 0.3s;
-    width: 100%; /* 너비 꽉 채우기 */
+    position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 비율 */
+    height: 0; overflow: hidden; border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    background: #000; /* 영상 로딩 전 검은색 */
 }
-.video-wrapper:hover { transform: translateY(-5px); }
+.video-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
 
-/* --- Member Cards --- */
+/* --- Member Cards (사진 크기 고정) --- */
 .member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px; margin-bottom: 60px; }
 .member-card {
     background: var(--white); padding: 30px 20px; border-radius: var(--radius); text-align: center;
     box-shadow: var(--shadow-sm); cursor: pointer; position: relative; overflow: hidden;
-    border: 1px solid transparent;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent; transition: transform 0.2s ease, box-shadow 0.2s ease;
     will-change: transform;
 }
 .member-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(99, 102, 241, 0.1); }
@@ -81,15 +86,6 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .role-text { font-size: 0.85rem; color: var(--primary); font-weight: 700; display: block; margin-bottom: 5px; }
 .member-card h3 { margin: 5px 0; font-size: 1.2rem; color: var(--dark); }
 .member-card p { font-size: 0.9rem; color: var(--gray); margin-top: 5px; }
-
-/* --- Alumni List --- */
-.alumni-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-.alumni-item {
-    background: var(--white); padding: 15px 20px; border-radius: 10px; box-shadow: var(--shadow-sm);
-    border-left: 4px solid #cbd5e1; display: flex; flex-direction: column;
-}
-.alumni-item strong { color: var(--dark); font-weight: 600; }
-.alumni-item span { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
 
 /* --- News Cards --- */
 .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
@@ -106,150 +102,82 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .news-card p { flex: 1; font-size: 0.95rem; color: var(--gray); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .read-more { margin-top: 15px; font-size: 0.9rem; font-weight: 700; color: var(--secondary); display: flex; align-items: center; gap: 5px; }
 
-/* --- Research Areas --- */
+/* --- Other Components --- */
 .research-areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 80px; }
-.area-card {
-    background: var(--white); border-radius: 24px; overflow: hidden; position: relative;
-    box-shadow: var(--shadow-sm); cursor: pointer; transition: var(--transition);
-}
-.area-card:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
-.area-img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s; }
-.area-card:hover .area-img { transform: scale(1.1); }
-.area-content { padding: 30px; position: relative; background: var(--white); }
-.area-content h3 { font-size: 1.5rem; margin: 0 0 10px; color: var(--dark); font-weight: 800; }
-.area-content p { color: var(--gray); font-size: 1rem; line-height: 1.6; }
-
-/* --- Research Lists --- */
+.area-card { background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); cursor: pointer; transition: var(--transition); }
+.area-card:hover { transform: scale(1.02); }
+.area-img { width: 100%; height: 250px; object-fit: cover; }
+.area-content { padding: 30px; }
 .research-list { display: grid; gap: 20px; }
-.project-card {
-    background: var(--white); padding: 25px; border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center;
-    box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer; border-left: 6px solid transparent;
-}
+.project-card { background: var(--white); padding: 25px; border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm); cursor: pointer; border-left: 6px solid transparent; transition: var(--transition); }
+.project-card:hover { transform: translateX(5px); }
 .project-card.ongoing { border-left-color: var(--primary); }
 .project-card.completed { border-left-color: #cbd5e1; }
-.project-card:hover { transform: translateX(10px); box-shadow: var(--shadow-hover); }
-.proj-info h4 { font-size: 1.15rem; margin: 0 0 5px; color: var(--dark); }
-.proj-meta { font-size: 0.9rem; color: var(--gray); }
-.proj-status { font-size: 0.8rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; margin-right: 10px; }
-.proj-status.ongoing { background: #e0e7ff; color: var(--primary); }
-.proj-status.completed { background: #f1f5f9; color: var(--gray); }
-
-/* --- Publications --- */
-.pub-controls {
-    background: var(--white); padding: 20px; border-radius: 20px; box-shadow: var(--shadow-sm);
-    display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; margin-bottom: 40px;
-}
+.pub-controls { background: var(--white); padding: 20px; border-radius: 20px; box-shadow: var(--shadow-sm); display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-bottom: 40px; }
 .filter-tabs { display: flex; gap: 10px; flex-wrap: wrap; }
-.tab-btn {
-    padding: 8px 20px; border: none; background: #f1f5f9; border-radius: 30px;
-    font-weight: 600; color: var(--gray); cursor: pointer; transition: all 0.2s;
-}
-.tab-btn:hover { background: #e2e8f0; }
+.tab-btn { padding: 8px 20px; border: none; background: #f1f5f9; border-radius: 30px; font-weight: 600; color: var(--gray); cursor: pointer; }
 .tab-btn.active { background: var(--dark); color: white; }
 .year-filter { display: flex; align-items: center; gap: 10px; }
-.year-input {
-    width: 80px; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 10px;
-    font-family: inherit; font-weight: 600; text-align: center;
-}
-.apply-btn {
-    background: var(--dark); color: white; border: none; padding: 8px 20px;
-    border-radius: 10px; cursor: pointer; font-weight: 600; transition: transform 0.2s;
-}
-.apply-btn:hover { transform: scale(1.05); }
-
-.pub-item {
-    background: var(--white); padding: 30px; border-radius: var(--radius); margin-bottom: 20px;
-    box-shadow: var(--shadow-sm); display: flex; gap: 25px; transition: var(--transition);
-    border: 1px solid transparent;
-}
-.pub-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: rgba(99, 102, 241, 0.2); }
-.pub-year { font-size: 1.5rem; font-weight: 800; color: var(--primary); min-width: 60px; opacity: 0.8; }
-.pub-content h3 {
-    font-size: 1.15rem; margin: 0 0 10px; color: var(--dark); line-height: 1.4;
-    white-space: normal; word-wrap: break-word;
-}
-.pub-authors { color: var(--gray); font-size: 0.95rem; margin-bottom: 5px; }
+.year-input { width: 80px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 10px; text-align: center; }
+.apply-btn { background: var(--dark); color: white; border: none; padding: 8px 20px; border-radius: 10px; cursor: pointer; }
+.pub-item { background: var(--white); padding: 30px; border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow-sm); display: flex; gap: 25px; }
+.pub-year { font-size: 1.5rem; font-weight: 800; color: var(--primary); min-width: 60px; }
+.pub-content h3 { font-size: 1.15rem; margin: 0 0 10px; color: var(--dark); line-height: 1.4; }
 .pub-venue { font-style: italic; font-weight: 600; color: var(--secondary); }
-.pub-link { color: #ccc; font-size: 1.2rem; margin-left: auto; }
-.pub-link:hover { color: var(--primary); }
+.pub-link { margin-left: auto; color: #ccc; font-size: 1.2rem; }
+.alumni-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+.alumni-item { background: var(--white); padding: 15px; border-radius: 10px; box-shadow: var(--shadow-sm); border-left: 4px solid #cbd5e1; }
 .award-item-style { border-left: 5px solid gold; align-items: center; }
 
-/* --- Detail Overlay --- */
-.detail-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: #fff; z-index: 2000; overflow-y: auto;
-    transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Overlay & Footer */
+.detail-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 2000; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 .detail-overlay.active { transform: translateY(0); }
-.detail-nav {
-    position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-    padding: 15px 20px; border-bottom: 1px solid #eee; display: flex; align-items: center; z-index: 10;
-}
+.detail-nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 20px; border-bottom: 1px solid #eee; display: flex; align-items: center; z-index: 10; }
 .back-btn { background: none; border: none; font-size: 1.1rem; font-weight: 700; color: var(--dark); cursor: pointer; display: flex; gap: 8px; align-items: center; }
 .detail-content { max-width: 800px; margin: 40px auto; padding: 0 24px; }
-.detail-header-center { text-align: center; margin-bottom: 40px; }
 .detail-img-lg { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); margin-bottom: 20px; }
-.detail-title { font-size: 2rem; color: var(--dark); margin-bottom: 10px; }
-.detail-body { background: #f8fafc; padding: 40px; border-radius: 20px; }
-.info-group { margin-bottom: 20px; }
-.info-group h4 { color: var(--primary); margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
-.info-group ul { padding-left: 20px; }
-
-/* --- Layout --- */
-.container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-.page-header { text-align: center; margin-bottom: 60px; }
-.page-header h1 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
-.section-header { margin-bottom: 40px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; display: flex; align-items: center; gap: 15px; }
-.section-header h2 { font-size: 1.8rem; font-weight: 700; color: var(--dark); margin: 0; }
-
-/* --- Footer --- */
 footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 40px 0; margin-top: 80px; }
 
 /* =========================================
    [모바일 반응형 디자인 수정]
    ========================================= */
 @media (max-width: 768px) {
-    /* 1. 네비게이션: 햄버거 메뉴 적용 */
-    .menu-toggle { display: block; } /* 햄버거 버튼 보이기 */
+    /* 1. 네비게이션: 햄버거 메뉴 강제 표시 */
+    .menu-toggle { display: block; position: absolute; right: 20px; font-size: 1.5rem; }
 
     .nav-links {
-        display: none; /* 기본 숨김 */
+        display: none; /* 평소엔 숨김 */
         flex-direction: column;
         position: absolute;
         top: 70px; left: 0; width: 100%;
         background: white;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        padding: 20px;
-        gap: 15px;
-        text-align: center;
+        padding: 0;
+        gap: 0;
     }
 
     .nav-links.active { display: flex; } /* 버튼 누르면 보임 */
-    .nav-item { padding: 10px 0; font-size: 1rem; border-bottom: 1px solid #f1f5f9; }
+    .nav-item { padding: 15px 20px; width: 100%; text-align: center; border-bottom: 1px solid #f1f5f9; }
     .nav-item:last-child { border-bottom: none; }
 
-    /* 2. 텍스트 및 레이아웃 조정 */
+    /* 메뉴 흔들림 방지 */
+    .nav-item::after { display: none; } /* 모바일 밑줄 애니메이션 제거 */
+    .nav-item:hover { background-color: #f8fafc; color: var(--primary); }
+
+    /* 2. 유튜브: 1줄에 1개씩 꽉 차게 */
+    .youtube-grid {
+        grid-template-columns: 1fr; /* 1열 */
+        gap: 20px;
+    }
+
+    /* 3. 레이아웃 조정 */
     .hero h1 { font-size: 2rem; }
     .page-header h1 { font-size: 2rem; }
 
-    /* 3. 유튜브 그리드 중앙 정렬 (왼쪽 쏠림 해결) */
-    .youtube-grid {
-        justify-content: center;
-        grid-template-columns: 1fr; /* 모바일은 1열로 꽉 차게 */
-    }
+    .member-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .member-card img { width: 100px !important; height: 100px !important; }
 
-    /* 4. 이미지 크기 최적화 (모바일에서 꽉 차게) */
-    .news-thumb { height: auto; aspect-ratio: 16/9; }
-    .area-img { height: 200px; }
-    .member-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } /* 모바일은 2열 */
-    .member-card img { width: 100px !important; height: 100px !important; } /* 약간 작게 */
-
-    /* 5. 컨트롤 패널 정렬 */
-    .pub-controls { flex-direction: column; align-items: stretch; gap: 15px; }
-    .filter-tabs { justify-content: center; }
-    .year-filter { justify-content: center; }
-
-    /* 6. 카드 레이아웃 */
-    .project-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .pub-controls { flex-direction: column; }
+    .project-card { flex-direction: column; align-items: flex-start; }
     .project-card i { display: none; }
 }
