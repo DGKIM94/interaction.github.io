@@ -2697,308 +2697,525 @@ const conferencePapers = [
 ];
 /* data.js - Patent Data */
 
-const patentData = [
-    // --- Registered International Patents ---
+/* data.js - Poster & Demo Papers (2007-2025) */
+
+const posterDemoPapers = [
+    // --- 2025 ---
     {
         year: 2025,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Haptic Feedback Control Apparatus and Method Thereof",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 2025/0195997 A1)",
-        link: "https://patents.google.com/patent/US20250195997A1"
+        category: "demo",
+        venueShort: "CHI",
+        title: "Demonstrating SkinHaptics: Exploring Skin Softness Perception and Virtual Body Embodiment Techniques to Enhance Self-Haptic Interactions",
+        authors: "Jungeun Lee, Minha Jeon, Jinyoung Lee, Seungmoon Choi, and Seungjae Oh",
+        venue: "ACM CHI Conference on Human Factors in Computing Systems (Interactivity)",
+        link: "https://doi.org/10.1145/3706599.3721275"
+    },
+    {
+        year: 2025,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Demonstrating SkinHaptics: Softness Perception and Virtual Body Embodiment for Self-Haptics",
+        authors: "Jungeun Lee, Minha Jeon, Jinyoung Lee, Seungmoon Choi, and Seungjae Oh",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Semantic Full-Body Haptic Effects for Virtual Reality First-Person-Shooter Games",
+        authors: "Gyeore Yun and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Automatic Haptic Rendering Pipeline Using AI Models",
+        authors: "Jeongwoo Kim, Jaejun Park, Uison Ju, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration; People’s Choice Award)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Body-Penetrating Tactile Phantom Sensations Enhanced by Sound",
+        authors: "Hyunuk Kim, Dajin Lee, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Automatic Generation of Haptic Motion Effects from Audiovisual Content",
+        authors: "Jiwan Lee, Jaejun Park, Jaehyeok Ahn, Sangyoon Han, Gyeore Yun, Jaebong Lee, Beomsu Lim, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration; People’s Choice Award)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "poster",
+        venueShort: "WHC",
+        title: "Identification of Spatio-Temporal Vibrotactile Stimuli Across the Torso: Toward Egocentric Haptic Navigation",
+        authors: "Junwoo Kim, Jaejun Park, Chaeyong Park, Junseok Park, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Work-in-Progress)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "poster",
+        venueShort: "WHC",
+        title: "Effects of Haptic Feedback on Gaming Experiences: A Case Study for Players and Spectators in an FPS game",
+        authors: "Heeji Sohn, Chaeyong Park, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Work-in-Progress; Honorable Mention)",
+        link: ""
+    },
+    {
+        year: 2025,
+        category: "poster",
+        venueShort: "WHC",
+        title: "Tactile Localization in Forearm-Mounted Multi-Tactor Displays: The Effect of Tactor Number and Position",
+        authors: "Dong-Geun Kim, Suheon Nam, Chaeyong Park, Geunho Lee, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Work-in-Progress)",
+        link: ""
+    },
+
+    // --- 2024 ---
+    {
+        year: 2024,
+        category: "poster",
+        venueShort: "ICRA W",
+        title: "Multimodal Haptic Feedback for Effectively Expressing the Social Intent of Touch Gestures in VR",
+        authors: "Heeyeon Kim and Seungmoon Choi",
+        venue: "ICRA Workshop on Applications and Future Directions of Affective Technologies (Best Poster Presentation Award)",
+        link: ""
     },
     {
         year: 2024,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Method and Apparatus for Generating and Merging Image-based Texture Motion",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 12,067,168 B2)",
-        link: "https://patents.google.com/patent/US12067168B2"
-    },
-    {
-        year: 2018,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Apparatus for Generating Motion Effects and Computer Readable Medium for the Same",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 10,147,213 B2)",
-        link: "https://patents.google.com/patent/US10147213B2"
-    },
-    {
-        year: 2018,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Somatic Sensation Induction System Using Pulse Laser and Medium of High Absorption Coefficient",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 10,058,712 B2)",
-        link: "https://patents.google.com/patent/US10058712B2"
-    },
-    {
-        year: 2018,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Method and Device for Generating Vibration Based on an Adjective",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 9,880,570 B2)",
-        link: "https://patents.google.com/patent/US9880570B2"
-    },
-    {
-        year: 2017,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Method and Device for Generating Vibration by Using Adjective Space on a Timeline",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 9,600,984 B2)",
-        link: "https://patents.google.com/patent/US9600984B2"
-    },
-    {
-        year: 2017,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Method and Apparatus for Generating Haptic Signal with Auditory Saliency Estimation",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 9,640,047 B2)",
-        link: "https://patents.google.com/patent/US9640047B2"
-    },
-    {
-        year: 2015,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Laser Apparatus Capable of Controlling a Photo−mechanical Effect and Method Using the Same",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 9,092,955 B2)",
-        link: "https://patents.google.com/patent/US9092955B2"
-    },
-    {
-        year: 2011,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Vibration Authoring Tool, Vibration Authoring Method, and Storage Medium Recorded with the Same",
-        authors: "Seungmoon Choi",
-        venue: "Registered International Patent (US 7,999,166 B2)",
-        link: "https://patents.google.com/patent/US7999166B2"
+        category: "poster",
+        venueShort: "KHC",
+        title: "Automatic Authoring of Physical and Perceptual Motion Effects for Virtual Reality",
+        authors: "Jiwan Lee, Sangyoon Han, and Seungmoon Choi",
+        venue: "Korea Haptics Conference (International Session)",
+        link: "https://arxiv.org/abs/2411.05162"
     },
 
-    // --- Applied International Patents ---
+    // --- 2023 ---
     {
-        year: 2019,
-        category: "patent",
-        venueShort: "Int. Patent",
-        title: "Apparatus and Method for Providing Virtual Texture",
-        authors: "Seungmoon Choi",
-        venue: "Applied International Patent (US 14/962,055)",
-        link: ""
-    },
-
-    // --- Registered Domestic Patents (Korea) ---
-    {
-        year: 2025,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Method and Device for Transforming DoF in Mulse-media System (다중감각미디어시스템에서 자유도변환방법 및 장치)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-2806247)",
-        link: ""
+        year: 2023,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Real-Time, Selective, and Multimodal Haptic Feedback from Gameplay Sound",
+        authors: "Gyeore Yun, Jungeun Lee, Dong-Geun Kim, Minjae Mun, Hong Z. Tan, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration)",
+        link: "https://youtu.be/mnbLtQvXQGo"
     },
     {
         year: 2023,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Method and Device for Providing Motion Effect (모션효과제공장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-2575318)",
-        link: ""
+        category: "demo",
+        venueShort: "WHC",
+        title: "Multimodal Haptic Feedback for Virtual Collisions Combining Vibration and Electrical Muscle Stimulation",
+        authors: "Jungeun Lee and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demonstration)",
+        link: "https://www.youtube.com/watch?v=sQ9E-dFdT08"
     },
     {
-        year: 2021,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Object Identification Apparatus and Method, System Comprising the Same (물체 인식 장치 및 방법 그리고 이를 포함하는 물체 인식 시스템)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-2272641)",
-        link: ""
+        year: 2023,
+        category: "poster",
+        venueShort: "WHC",
+        title: "A Comparative Study of Physical and Haptic Exhibits in Informal Learning Environment",
+        authors: "Dajin Lee, Daehyeon Nam, Seokwon Jeong, Keehoon Kim, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/10224467"
     },
+
+    // --- 2022 ---
+    {
+        year: 2022,
+        category: "poster",
+        venueShort: "SIGGRAPH Asia",
+        title: "MMGrip: A Handheld Multimodal Haptic Device Combining Vibration, Impact, and Shear for Realistic Expression of Contact",
+        authors: "Dong-Geun Kim, Jungeun Lee, and Seungmoon Choi",
+        venue: "SIGGRAPH Asia Posters",
+        link: "https://doi.org/10.1145/3550082.3564197"
+    },
+
+    // --- 2021 ---
     {
         year: 2021,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus and Method for Providing a Texture Signal (질감 신호 제공 장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-2247521)",
-        link: ""
+        category: "poster",
+        venueShort: "UR",
+        title: "Data-Driven Viscoelasticity Modeling Using Random Forests with Position and Velocity Pair",
+        authors: "Hojun Cha, Amit Bhardwaj, and Seungmoon Choi",
+        venue: "International Conference on Ubiquitous Robots (UR)",
+        link: "https://ieeexplore.ieee.org/document/9494676"
+    },
+
+    // --- 2020 ---
+    {
+        year: 2020,
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Perceived Magnitude Function of Friction Rendered by the Dahl Model",
+        authors: "Beomsu Lim, Junkyeong Choi, Yongjae Yoo, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/9082568"
     },
     {
         year: 2020,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Method and Device for Generating Vibration Using Adjective (형용사를 이용한 진동 생성 방법 및 디바이스)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-2191968)",
-        link: ""
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Vestibular Detection Thresholds and Psychometric Functions of Motion Effects in Cardinal Directions",
+        authors: "Jiwan Lee and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/9082697"
+    },
+
+    // --- 2019 ---
+    {
+        year: 2019,
+        category: "demo",
+        venueShort: "WHC",
+        title: "VibEye: A System for Identification of Hand-held Object by Visualizing Vibration Propagation Dynamics",
+        authors: "Seungjae Oh, Chaeyong Park, Jinsoo Kim, Gyeore Yun, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://www.youtube.com/watch?v=0QsU1rFs5yY"
     },
     {
         year: 2019,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus and Method for Providing a Virtual Texture (재질감 제공 장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-2045891)",
-        link: ""
+        category: "demo",
+        venueShort: "WHC",
+        title: "Realistic Haptic Rendering of Collision Effects Using Multimodal Vibrotactile and Impact Feedback",
+        authors: "Chaeyong Park, Jaeyoung Park, Seungjae Oh, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/8816127"
+    },
+    {
+        year: 2019,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Seamless Phantom Sensation Moving Across a Wide Range of Body",
+        authors: "Gyeore Yun, Seungjae Oh, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/8816131"
+    },
+    {
+        year: 2019,
+        category: "demo",
+        venueShort: "ISS",
+        title: "Data-driven Texture Modeling and Rendering on Electrovibration Display",
+        authors: "Seongwon Cho, Reza Haghighi Osgouei, Jin Ryong Kim, and Seungmoon Choi",
+        venue: "ACM International Conference on Interactive Surfaces and Spaces (Demo)",
+        link: "https://doi.org/10.1145/3343055.3360741"
+    },
+
+    // --- 2018 ---
+    {
+        year: 2018,
+        category: "demo",
+        venueShort: "HAPTICS",
+        title: "An Inverse Neural Network Model for Data-Driven Texture Rendering on Electrovibration Display",
+        authors: "Reza Haghighi Osgouei, Sunghwan Shin, Seongwon Cho, Jin Ryong Kim, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/8357187"
     },
     {
         year: 2018,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Navigating Apparatus and System by Inducing Tactile Sense (체감각 유도 방식의 길 안내 장치 및 시스템)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1825674)",
-        link: ""
+        category: "demo",
+        venueShort: "CHI",
+        title: "4D Experiences Enabled by Automatic Synthesis of Motion and Vibrotactile Effects",
+        authors: "Sangyoon Han, Sunung Mun, Jongman Seo, Jaebong Lee, and Seungmoon Choi",
+        venue: "ACM CHI Conference on Human Factors in Computing Systems (Extended Abstracts)",
+        link: "https://doi.org/10.1145/3170427.3186516"
+    },
+    {
+        year: 2018,
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "TouchPhoto: Enabling Independent Picture-taking and Understanding of Photos for Visually-Impaired Users",
+        authors: "Yongjae Yoo, Jongho Lim, Hanseul Cho, and Seungmoon Choi",
+        venue: "AsiaHaptics (Hands-on Demo)",
+        link: "https://doi.org/10.1007/978-981-13-3194-7_49"
+    },
+    {
+        year: 2018,
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "Random Forest for Modeling and Rendering of Viscoelastic Deformable Objects",
+        authors: "Hojun Cha, Amit Bhardwaj, Chaeyong Park, and Seungmoon Choi",
+        venue: "AsiaHaptics (Hands-on Demo)",
+        link: "https://doi.org/10.1007/978-981-13-3194-7_9"
+    },
+    {
+        year: 2018,
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "Towards Automatic Synthesis of Motion Effects",
+        authors: "Sangyoon Han, Jaebong Lee, and Seungmoon Choi",
+        venue: "AsiaHaptics (Candidate for Best Demo Award)",
+        link: "https://doi.org/10.1007/978-981-13-3194-7_59"
+    },
+    {
+        year: 2018,
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "Data-driven Multi-modal Haptic Rendering Combining Force, Tactile, and Thermal Feedback",
+        authors: "Seongwon Cho, Hyejin Choi, Sunghwan Shin, and Seungmoon Choi",
+        venue: "AsiaHaptics (Hands-on Demo)",
+        link: "https://doi.org/10.1007/978-981-13-3194-7_13"
+    },
+
+    // --- 2017 ---
+    {
+        year: 2017,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Mid-air Tactile Application Using Indirect Laser Radiation for Contour-Following Stimulation",
+        authors: "Hojun Cha, Hojin Lee, Junsuk Park, Hyung-Sik Kim, Soon-Cheol Chung, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/7989885"
     },
     {
         year: 2017,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "The Method of Decompositioning Contact Force and the Haptic Apparatus Thereof (접촉힘을 분해하는 방법 및 이를 적용한 햅틱 장치)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1728733)",
-        link: ""
+        category: "poster",
+        venueShort: "URAI",
+        title: "Haptic Texture Rendering Using Random Fractal Surface",
+        authors: "Seongwon Cho, Sunghwan Shin and Seungmoon Choi",
+        venue: "International Conference on Ubiquitous Robots and Ambient Intelligence (URAI)",
+        link: "https://ieeexplore.ieee.org/document/7992732"
+    },
+
+    // --- 2016 ---
+    {
+        year: 2016,
+        category: "demo",
+        venueShort: "HAPTICS",
+        title: "Graphical Authoring Tool of Vibrotactile Stimuli Using Adjectival Space",
+        authors: "Yongjae Yoo, Jaebong Lee, Jongman Seo, Eunhwa Lee, Jeongseok Lee, Yudong Bae, Daekwang Jung, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/7463196"
     },
     {
         year: 2016,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus and Method for Generating Motion Effects by Analyzing Motion of Object (객체의 움직임 분석을 이용한 모션 효과 생성 장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1642200)",
-        link: ""
+        category: "demo",
+        venueShort: "UIST",
+        title: "LaserStroke: Mid-air Tactile Experiences on Contours Using Indirect Laser Radiation",
+        authors: "Hojin Lee, Hojun Cha, Junsuk Park, Seungmoon Choi, Hyung-Sik Kim, and Soon-Cheol Chung",
+        venue: "ACM UIST (Demo)",
+        link: "https://doi.org/10.1145/2984751.2984767"
     },
     {
         year: 2016,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus for Generating Motion Effects and Computer Readable Medium for the Same (모션 효과 생성 장치 및 이를 위한 컴퓨터로 읽을 수 있는 기록매체)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1642198)",
-        link: ""
+        category: "demo",
+        venueShort: "UIST",
+        title: "MagTacS: Delivering Tactile Sensation over an Object",
+        authors: "Hyung-Sik Kim, Seong-Young Gim, Woo-Ram Kim, Mi-Hyun Choi, Seungmoon Choi, and Soon-Cheol Chung",
+        venue: "ACM UIST (Demo)",
+        link: "https://doi.org/10.1145/2984751.2984768"
     },
     {
         year: 2016,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Method for Haptic Signal Generation Based on Auditory Saliency and Apparatus Therefor (청각 주목도에 기반한 햅틱 신호 생성 방법 및 이를 위한 장치)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1641418)",
-        link: ""
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "Hybrid Haptic Texture Rendering Using Kinesthetic and Vibrotactile Feedback",
+        authors: "Sunghwan Shin and Seungmoon Choi",
+        venue: "AsiaHaptics (Demo)",
+        link: "https://doi.org/10.1007/978-981-10-4157-0_13"
+    },
+    {
+        year: 2016,
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "PhysVib: Physically Plausible Vibrotactile Feedback Library to Collisions on a Mobile Device",
+        authors: "Gunhyuk Park and Seungmoon Choi",
+        venue: "AsiaHaptics (Demo)",
+        link: "https://doi.org/10.1007/978-981-10-4157-0_72"
+    },
+    {
+        year: 2016,
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Haptic Texture Modeling Using Photometric Stereo",
+        authors: "Sunghwan Shin and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/7463188"
+    },
+    {
+        year: 2016,
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Vibrotactile Rendering of Gunshot Events for 4D Films",
+        authors: "Jongman Seo, Reza Haghighi Osgouei, Soon-Cheol Chung, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/7463194"
+    },
+    {
+        year: 2016,
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Large-Scale Survey on Adjectival Representation of Vibrotactile Stimuli",
+        authors: "Yongjae Yoo, Jaebong Lee, Jongman Seo, Eunhwa Lee, Jeongseok Lee, Yudong Bae, Daekwang Jung, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/7463197"
+    },
+
+    // --- 2015 ---
+    {
+        year: 2015,
+        category: "demo",
+        venueShort: "WHC",
+        title: "Mid-Air Tactile Stimulation Using Laser-Induced Thermoelastic Effects",
+        authors: "Hojin Lee, Ji-Sun Kim, Seungmoon Choi, et al.",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/7177741"
     },
     {
         year: 2015,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "System for Inducing Tactile Sense Using Pulse Laser and Medium with High Absorption Coefficient (펄스 레이저 및 흡수계수가 높은 매질을 이용한 체성감각 유도 시스템)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1581763)",
-        link: ""
+        category: "demo",
+        venueShort: "WHC",
+        title: "TouchMusic: Music Experience System for the Hearing-Impaired",
+        authors: "Gunhyuk Park, Yongjae Yoo, Seungmoon Choi, et al.",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://www.youtube.com/watch?v=erxedN-qgW4"
     },
     {
         year: 2015,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus and Method for Outputting Braille Using Laser Beam (레이저 빔을 이용한 점자 출력 장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1523619)",
-        link: ""
+        category: "demo",
+        venueShort: "WHC",
+        title: "Data-Driven Haptic Modeling and Rendering of Deformable Objects Including Sliding Friction",
+        authors: "Sunghoon Yim, Seokhee Jeon, and Seungmoon Choi",
+        venue: "IEEE World Haptics Conference (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/7177730"
     },
     {
         year: 2015,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus and Method for Providing Motion Haptic Effect Using Video Analysis (영상 분석을 통하여 모션 햅틱 효과를 제공하는 장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1507242)",
-        link: ""
+        category: "poster",
+        venueShort: "WHC",
+        title: "Preliminary Study on Perceived Intensity of Electrovibration Using High-Frequency Carrier-Signal Voltage",
+        authors: "Jeonggoo Kang, Heewon Kim, Seungmoon Choi, Ki-Duk Kim, and Jeha Ryu",
+        venue: "IEEE World Haptics Conference (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/7177760"
     },
     {
         year: 2015,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Surgical Robot Capable of Providing Tactile Sense Using Laser Beam (레이저 빔을 이용하여 촉감을 제공할 수 있는 수술용 로봇 장치)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1483428)",
-        link: ""
+        category: "poster",
+        venueShort: "URAI",
+        title: "Decomposition of Contact Force Using Contact Pressure for Haptic Augmented Reality",
+        authors: "Hyoungkyun Kim, Seungmoon Choi, and Wan Kyun Chung",
+        venue: "International Conference on Ubiquitous Robots and Ambient Intelligence (URAI)",
+        link: "https://ieeexplore.ieee.org/document/7358908"
+    },
+
+    // --- 2014 ---
+    {
+        year: 2014,
+        category: "demo",
+        venueShort: "HAPTICS",
+        title: "👑 PreventFHP: Detection and Warning System for Forward Head",
+        authors: "Jaebong Lee, Eunji Cho, Minjae Kim, Yongmin Yoon, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Hands-on Demo; Best Teaser Award)",
+        link: "https://ieeexplore.ieee.org/document/6775469"
     },
     {
         year: 2014,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Method for Converting Audio Signal to Haptic Signal and Apparatus for Performing the Same (오디오 신호의 햅틱 신호 변환 방법 및 이를 수행하는 장치)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1427993)",
-        link: ""
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "Normal and Tangential Force Decomposition and Augmentation Based on Contact Centroid",
+        authors: "Sunghoon Yim, Seokhee Jeon, and Seungmoon Choi",
+        venue: "AsiaHaptics (Honorable Mention - Final Candidate for Best Demo Award)",
+        link: "https://doi.org/10.1007/978-981-10-4157-0_22"
     },
     {
         year: 2014,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Electronic Device for Providing Tactile Sense Using Laser and Method Using the Same (레이저를 이용하여 촉감을 제공하는 전자 장치 및 이를 이용한 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1375613)",
-        link: ""
+        category: "demo",
+        venueShort: "AsiaHaptics",
+        title: "Haptic-enabled English Education System",
+        authors: "Hoang Minh Phuong, Jaebong Lee, Hojin Lee, Kyusong Lee, Gary Geunbae Lee, and Seungmoon Choi",
+        venue: "AsiaHaptics (Demo)",
+        link: "https://doi.org/10.1007/978-981-10-4157-0_49"
     },
+
+    // --- 2013 ---
     {
         year: 2013,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Apparatus and Method for Guiding State Information of Vehicle (운송 장치의 상태 정보를 안내하는 안내 장치 및 방법)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1345310)",
-        link: ""
+        category: "poster",
+        venueShort: "RO-MAN",
+        title: "Haptic-Enabled Driving Training System",
+        authors: "Reza Haghighi Osgouei, Hojin Lee and Seungmoon Choi",
+        venue: "IEEE International Symposium on Robot & Human Interactive Communication (Work-in-Progress)",
+        link: "https://ieeexplore.ieee.org/document/6628461"
+    },
+
+    // --- 2012 ---
+    {
+        year: 2012,
+        category: "demo",
+        venueShort: "HAPTICS",
+        title: "Shape Modeling of Soft Real Objects Using Force-Feedback Haptic Interface",
+        authors: "Sunghoon Yim and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Hands-on Demo)",
+        link: "https://ieeexplore.ieee.org/document/6183834"
+    },
+
+    // --- 2010 ---
+    {
+        year: 2010,
+        category: "demo",
+        venueShort: "HAPTICS",
+        title: "👑 Stiffness Modulation for Haptic Augmented Reality",
+        authors: "Seokhee Jeon and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Best Demo Award)",
+        link: "https://ieeexplore.ieee.org/document/5444638"
     },
     {
-        year: 2013,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Laser Apparatus Capable of Pulsed Laser Beam Diameter for Regulation of Tactile Sense and Method Using the Same",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1340359)",
-        link: ""
+        year: 2010,
+        category: "demo",
+        venueShort: "ISMAR",
+        title: "Breast Cancer Palpation System using Haptic Augmented Reality",
+        authors: "Seokhee Jeon, Benjamin Knoerlein, Matthias Harders, Gabjong Han, and Seungmoon Choi",
+        venue: "IEEE International Symposium on Mixed and Augmented Reality (ISMAR Demo)",
+        link: "https://ieeexplore.ieee.org/document/5643538"
     },
     {
-        year: 2013,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Laser Apparatus Capable of Regulating Photo-Mechanical Effect and Method Using the Same",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1340361)",
-        link: ""
+        year: 2010,
+        category: "demo",
+        venueShort: "EuroHaptics",
+        title: "Real-time Dual-band Haptic Music Player for Mobile Devices",
+        authors: "Inwook Hwang, Moonchae Joung, Sunwook Kim, Kyunghun Hwang, Jaecheon Sa, and Seungmoon Choi",
+        venue: "EuroHaptics (Demo)",
+        link: "https://link.springer.com/chapter/10.1007/978-3-642-14075-4_64"
     },
     {
-        year: 2013,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Method and Apparatus for Providing Tactile Effect (촉각 효과의 제공 방법 및 장치)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1305735)",
-        link: ""
+        year: 2010,
+        category: "poster",
+        venueShort: "ISMAR",
+        title: "Haptic Simulation of Breast Cancer Palpation: A Case Study of Haptic Augmented Reality",
+        authors: "Seokhee Jeon, Benjamin Knoerlein, Matthias Harders, and Seungmoon Choi",
+        venue: "IEEE International Symposium on Mixed and Augmented Reality (Poster)",
+        link: "https://ieeexplore.ieee.org/document/5643585"
     },
+
+    // --- 2008 ---
     {
-        year: 2011,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Vibration Authoring Tool (진동 저작 도구)",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-1080989)",
-        link: ""
+        year: 2008,
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Perceived Magnitudes of Vibrations Transmitted Through Mobile Device",
+        authors: "Jonghyun Ryu, Jaehoon Jung, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Poster)",
+        link: "https://ieeexplore.ieee.org/document/4479930"
     },
     {
         year: 2008,
-        category: "patent",
-        venueShort: "Dom. Patent",
-        title: "Device and Method for Controlling an Electric Device Using an Inertial Sensor and a Camera",
-        authors: "Seungmoon Choi",
-        venue: "Registered Domestic Patent (KR 10-0837819)",
-        link: ""
+        category: "poster",
+        venueShort: "HAPTICS",
+        title: "Haptic Weather",
+        authors: "Chaehyun Lee, Bernard D. Adelstein, and Seungmoon Choi",
+        venue: "IEEE Haptics Symposium (Poster)",
+        link: "https://ieeexplore.ieee.org/document/4479998"
     }
 ];
 // ... [Awards 데이터 등 나머지는 기존 유지] ...
