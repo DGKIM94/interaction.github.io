@@ -8,14 +8,7 @@ const newsData = [
         image: "images/lab_intro1.jpg", // 뉴스 썸네일 (폴더에 있는 이미지 사용)
         detailContent: "Detailed report about WHC 2025. Keynote speakers included... (Long text)"
     },
-    {
-        id: 2,
-        date: "2025-05-21",
-        title: "Invited Talk at Korea Data Mining Society",
-        content: "Prof. Choi gave an invited talk on 'Generating Haptic and Motion Content from Audiovisual Data'.",
-        image: "images/member_placeholder.png",
-        detailContent: "Slides and video recording of the talk are available..."
-    },
+
     {
         id: 3,
         date: "2025-03-01",
