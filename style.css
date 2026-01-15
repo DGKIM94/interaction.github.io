@@ -153,19 +153,13 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
     color: white !important;
 }
 
+/* 탭 버튼 색상 */
 .tab-btn.active[data-cat="all"] { background: var(--dark); }
 .tab-btn.active[data-cat="journal"] { background: var(--primary); }
 .tab-btn.active[data-cat="conference"] { background: var(--secondary); }
+.tab-btn.active[data-cat="poster"] { background: #10b981; } /* Poster: 초록 */
+.tab-btn.active[data-cat="demo"] { background: #f59e0b; }   /* Demo: 주황 */
 .tab-btn.active[data-cat="patent"] { background: var(--accent); }
-/* style.css */
-
-/* 탭 버튼 활성화 색상 추가 */
-.tab-btn.active[data-cat="poster"] { background: #10b981; } /* 초록색 (Emerald) */
-.tab-btn.active[data-cat="demo"] { background: #f59e0b; }   /* 주황색 (Amber) */
-
-/* 리스트 아이템 뱃지 색상 추가 (badge-container 쪽) */
-.pub-badge.poster { background: #10b981; }
-.pub-badge.demo { background: #f59e0b; }
 
 .year-filter { display: flex; align-items: center; gap: 10px; }
 .year-input {
@@ -191,47 +185,86 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .search-input { flex: 2; padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: inherit; font-size: 0.95rem; }
 .venue-select { flex: 1; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: inherit; font-size: 0.95rem; background: white; cursor: pointer; }
 
-/* Pub List */
-.pub-item { background: var(--white); padding: 30px; border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow-sm); display: flex; gap: 25px; transition: var(--transition); border: 1px solid transparent; }
-.pub-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: rgba(99, 102, 241, 0.2); }
-.pub-year { font-size: 1.5rem; font-weight: 800; color: var(--primary); min-width: 60px; }
-.pub-content h3 { font-size: 1.15rem; margin: 0 0 10px; color: var(--dark); line-height: 1.4; white-space: normal; word-wrap: break-word; }
-.pub-authors { color: var(--gray); font-size: 0.95rem; margin-bottom: 5px; }
-.pub-venue { font-style: italic; font-weight: 600; color: var(--secondary); }
-/* style.css */
-
-/* [수정] 논문 링크 버튼 스타일 (기존 .pub-link 교체) */
-.pub-link {
-    margin-left: auto;             /* 오른쪽 끝으로 밀기 */
-    display: inline-flex;          /* 아이콘과 텍스트 정렬 */
-    align-items: center;
-    gap: 6px;                      /* 글자와 아이콘 사이 간격 */
-
-    background-color: #e0e7ff;     /* 연한 파란색 배경 (var(--primary)의 연한 버전) */
-    color: var(--primary);         /* 글자색: 파란색 */
-    padding: 8px 16px;             /* 버튼 내부 여백 */
-    border-radius: 8px;            /* 둥근 모서리 */
-
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;         /* 밑줄 제거 */
-    transition: all 0.2s ease;
-    white-space: nowrap;           /* 줄바꿈 방지 */
+/* --- Pub List (수정됨) --- */
+.pub-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 25px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+.pub-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(99, 102, 241, 0.2);
 }
 
-/* 마우스 올렸을 때 효과 */
+/* [왼쪽 기둥] 년도 + 링크 버튼 */
+.pub-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 가운데 정렬 */
+    gap: 8px;            /* 년도와 버튼 사이 간격 */
+    min-width: 80px;     /* 기둥 너비 고정 (년도와 비슷하게) */
+    text-align: center;
+}
+
+.pub-year {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.pub-content {
+    flex: 1; /* 남은 공간 모두 차지 */
+}
+
+.pub-content h3 {
+    font-size: 1.15rem; margin: 0 0 10px; color: var(--dark);
+    line-height: 1.4; white-space: normal; word-wrap: break-word;
+}
+.pub-authors { color: var(--gray); font-size: 0.95rem; margin-bottom: 5px; }
+.pub-venue { font-style: italic; font-weight: 600; color: var(--secondary); }
+
+/* [수정] 링크 버튼 스타일 (작은 박스 형태) */
+.pub-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    background-color: #e0e7ff;
+    color: var(--primary);
+
+    /* 뱃지와 비슷한 크기로 작게 설정 */
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
 .pub-link:hover {
-    background-color: var(--primary); /* 진한 파란색 배경 */
-    color: white;                     /* 흰색 글자 */
-    transform: translateY(-2px);      /* 살짝 위로 떠오르는 효과 */
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); /* 그림자 */
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 /* Badges */
-.badge-container { display: flex; gap: 8px; margin-bottom: 8px; }
+.badge-container { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
 .pub-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.5px; }
 .pub-badge.journal { background: var(--primary); }
 .pub-badge.conference { background: var(--secondary); }
+.pub-badge.poster { background: #10b981; }
+.pub-badge.demo { background: #f59e0b; }
 .pub-badge.patent { background: var(--accent); }
 .pub-badge.venue-tag { background: #e2e8f0; color: var(--dark); font-weight: 600; }
 
@@ -298,57 +331,25 @@ footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 4
     /* 2. YouTube */
     .youtube-grid { grid-template-columns: 1fr; gap: 20px; }
 
-    /* 3. Publications Controls [수정됨: 줄바꿈 허용] */
+    /* 3. Publications Controls */
     .pub-controls {
         flex-direction: column; align-items: stretch; gap: 15px; padding: 15px; overflow: hidden;
-    }
-    /* style.css 맨 아래 @media (max-width: 768px) { ... } 안쪽에 추가 */
-
-    /* --- Pub List Mobile Fix (논문 리스트 모바일 수정) --- */
-    .pub-item {
-        flex-direction: column; /* 가로 배열을 세로 배열로 변경 */
-        align-items: flex-start; /* 왼쪽 정렬 */
-        gap: 15px; /* 요소 간 간격 조정 */
-        padding: 20px; /* 내부 여백 조정 */
-    }
-
-    .pub-year {
-        font-size: 1.3rem; /* 년도 크기 살짝 조정 */
-        min-width: auto; /* 최소 너비 해제 */
-        margin-bottom: 0;
-        color: var(--primary);
-    }
-
-    .pub-content {
-        width: 100%; /* 내용은 꽉 차게 */
-    }
-
-    /* 링크 버튼 스타일 재정의 */
-    .pub-link {
-        margin-left: 0 !important; /* 오른쪽 끝으로 미는 속성 강제 해제 */
-        margin-top: 5px; /* 위쪽 여백 */
-        align-self: flex-start; /* 왼쪽 정렬 (년도 아래쪽 라인) */
-
-        /* 버튼 크기 작게 조정 */
-        font-size: 0.85rem;
-        padding: 6px 12px;
-        width: auto; /* 내용만큼만 크기 차지 */
     }
 
     .filter-tabs {
         display: flex;
-        flex-wrap: wrap;        /* 핵심: 줄바꿈 허용 */
+        flex-wrap: wrap;        /* 줄바꿈 허용 */
         justify-content: center;
         gap: 8px;
         width: 100%;
         padding-bottom: 0;
-        overflow-x: visible;    /* 스크롤 제거 */
+        overflow-x: visible;
     }
     .filter-tabs::-webkit-scrollbar { display: none; }
 
     .tab-btn {
-        flex: 1 1 auto;         /* 공간 채우기 */
-        min-width: 80px;        /* 최소 너비 */
+        flex: 1 1 auto;
+        min-width: 80px;
         font-size: 0.9rem;
         padding: 10px 12px;
         text-align: center;
@@ -360,6 +361,37 @@ footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 4
 
     .search-container { flex-direction: column; }
     .search-input, .venue-select { width: 100%; }
+
+    /* [모바일 Pub List 수정] */
+    .pub-item {
+        flex-direction: column; /* 세로로 쌓기 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        gap: 15px;
+        padding: 20px;
+    }
+
+    /* 모바일에서는 왼쪽 기둥(년도+버튼)을 풀어줌 */
+    .pub-left-col {
+        min-width: auto;
+        width: 100%;
+        display: block; /* 블록 요소로 변경 */
+        text-align: left; /* 왼쪽 정렬 */
+        margin-bottom: 5px;
+    }
+
+    .pub-year {
+        font-size: 1.3rem;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* 모바일 버튼: 년도 밑에 작게 */
+    .pub-link {
+        display: inline-flex;
+        width: auto;
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
 
     /* 4. 리서치 그리드 */
     .research-areas-grid { grid-template-columns: 1fr; gap: 20px; }

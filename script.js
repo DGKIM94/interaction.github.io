@@ -1,4 +1,4 @@
-// script.js
+/* script.js */
 
 /* =========================================
    1. 유틸리티: 상세 오버레이 (Overlay Control)
@@ -9,7 +9,7 @@ function openDetail(html) {
     if (overlay && body) {
         body.innerHTML = html;
         overlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -17,11 +17,10 @@ function closeDetail() {
     const overlay = document.getElementById('detail-overlay');
     if (overlay) {
         overlay.classList.remove('active');
-        document.body.style.overflow = 'auto'; // 스크롤 복구
+        document.body.style.overflow = 'auto';
     }
 }
 
-// 오버레이 외부 클릭 시 닫기
 document.addEventListener('click', function (e) {
     const overlay = document.getElementById('detail-overlay');
     if (overlay && e.target === overlay) {
@@ -33,7 +32,6 @@ document.addEventListener('click', function (e) {
 /* =========================================
    2. 데이터 헬퍼 (Data Helper)
    ========================================= */
-// 뉴스 날짜순 정렬 (최신순)
 function getSortedNews() {
     if (typeof newsData === 'undefined') return [];
     return [...newsData].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -44,7 +42,6 @@ function getSortedNews() {
    3. 메인 페이지 (Home Rendering)
    ========================================= */
 function renderHome() {
-    // 1) YouTube Videos
     const ytContainer = document.getElementById('youtube-gallery');
     if (ytContainer && typeof youtubeVideos !== 'undefined') {
         ytContainer.innerHTML = '';
@@ -56,7 +53,6 @@ function renderHome() {
         });
     }
 
-    // 2) Latest News (날짜순 정렬 + 상위 3개)
     const newsContainer = document.getElementById('home-news');
     if (newsContainer && typeof newsData !== 'undefined') {
         const sorted = getSortedNews();
@@ -79,7 +75,6 @@ function renderHome() {
         });
     }
 
-    // 3) Research Highlights (Ongoing 상위 4개)
     const resContainer = document.getElementById('home-research');
     if (resContainer && typeof researchData !== 'undefined') {
         resContainer.innerHTML = '';
@@ -156,7 +151,6 @@ function renderMembers() {
 
     if (!profList) return;
 
-    // 초기화
     profList.innerHTML = '';
     phdList.innerHTML = '';
     msList.innerHTML = '';
@@ -164,7 +158,6 @@ function renderMembers() {
 
     if (typeof memberData === 'undefined') return;
 
-    // 교수 및 재학생
     memberData.forEach((m, index) => {
         if (m.role !== 'alumni') {
             const card = createMemberCard(m, index);
@@ -174,7 +167,6 @@ function renderMembers() {
         }
     });
 
-    // 졸업생 (연도순 정렬)
     if (alumniList) {
         const alumni = memberData.filter(m => m.role === 'alumni');
         alumni.sort((a, b) => {
@@ -245,7 +237,6 @@ function renderResearchPage() {
 
     if (!ongoingContainer || typeof researchData === 'undefined') return;
 
-    // 1) Research Areas
     if (areaContainer && typeof researchAreas !== 'undefined') {
         areaContainer.innerHTML = '';
         researchAreas.forEach((area, idx) => {
@@ -260,7 +251,6 @@ function renderResearchPage() {
         });
     }
 
-    // 2) Projects List
     ongoingContainer.innerHTML = '';
     completedContainer.innerHTML = '';
 
@@ -314,82 +304,65 @@ function showProjectDetail(index) {
 /* =========================================
    7. 논문 페이지 (Publications Page) - 수정됨
    ========================================= */
-   /* script.js */
+function renderPublications() {
+    const container = document.getElementById('pub-list');
+    if (!container || typeof publicationData === 'undefined') return;
 
-   function renderPublications() {
-       const container = document.getElementById('pub-list');
-       if (!container || typeof publicationData === 'undefined') return;
+    // [자동 설정] 연도 필터 최소/최대값
+    const startInput = document.getElementById('year-start');
+    const endInput = document.getElementById('year-end');
 
-       // --- [추가된 부분] 연도 필터 범위 자동 설정 시작 ---
-       const startInput = document.getElementById('year-start');
-       const endInput = document.getElementById('year-end');
+    if (startInput && endInput && publicationData.length > 0) {
+        const years = publicationData.map(p => p.year);
+        const minYear = Math.min(...years);
+        const maxYear = Math.max(...years);
 
-       if (startInput && endInput && publicationData.length > 0) {
-           // 1. 데이터에서 연도만 뽑아서 최소/최대값 계산
-           const years = publicationData.map(p => p.year);
-           const minYear = Math.min(...years); // 가장 옛날 연도
-           const maxYear = Math.max(...years); // 가장 최신 연도
+        startInput.min = minYear;
+        startInput.max = maxYear;
+        endInput.min = minYear;
+        endInput.max = maxYear;
 
-           // 2. 입력칸의 min, max 속성 설정 (화살표 제한)
-           startInput.min = minYear;
-           startInput.max = maxYear;
-           endInput.min = minYear;
-           endInput.max = maxYear;
+        startInput.placeholder = minYear;
+        endInput.placeholder = maxYear;
+    }
 
-           // 3. (선택사항) 처음에 값이 비어있다면 기본값 채워주기
-            if (!startInput.value) startInput.value = minYear;
-            if (!endInput.value) endInput.value = maxYear;
+    updateVenueOptions('all');
+    applyPubFilter();
 
-           // 4. 플레이스홀더(안내 문구)도 맞춰주면 좋음
-           startInput.placeholder = minYear;
-           endInput.placeholder = maxYear;
-       }
-       // --- [추가된 부분] 끝 ---
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-       // 1. 처음 로드시 'All' 탭 기준 Venue 목록 생성
-       updateVenueOptions('all');
-       applyPubFilter();
+            const category = btn.dataset.cat;
+            updateVenueOptions(category);
+            applyPubFilter();
+        });
+    });
+}
 
-       // 2. 탭 버튼 이벤트 리스너
-       const buttons = document.querySelectorAll('.tab-btn');
-       buttons.forEach(btn => {
-           btn.addEventListener('click', () => {
-               buttons.forEach(b => b.classList.remove('active'));
-               btn.classList.add('active');
-
-               const category = btn.dataset.cat;
-               updateVenueOptions(category);
-               applyPubFilter();
-           });
-       });
-   }
-// [새로 추가] 카테고리에 맞는 Venue만 셀렉트 박스에 넣기
 function updateVenueOptions(category) {
     const venueSelect = document.getElementById('venue-filter');
     if (!venueSelect) return;
 
-    // 1) 카테고리 필터링 (All이면 전체, 아니면 해당 카테고리만)
     let targetPubs = publicationData;
     if (category !== 'all') {
         targetPubs = publicationData.filter(pub => pub.category === category);
     }
 
-    // 2) Venue 추출 및 중복 제거
     const venueSet = new Set();
     targetPubs.forEach(pub => {
         if (pub.venueShort) venueSet.add(pub.venueShort);
     });
 
-    // 3) 알파벳순 정렬
     const sortedVenues = Array.from(venueSet).sort();
 
-    // 4) 셀렉트 박스 다시 그리기
     venueSelect.innerHTML = '<option value="all">All Venues</option>';
     sortedVenues.forEach(shortName => {
         venueSelect.innerHTML += `<option value="${shortName}">${shortName}</option>`;
     });
 
-    // 탭을 바꿀 때 Venue 선택값은 'All'로 초기화
     venueSelect.value = 'all';
 }
 
@@ -430,17 +403,22 @@ function applyPubFilter() {
     }
 
     filtered.forEach(pub => {
-      // [수정 후: 글씨(View) 추가]
-      const linkHtml = pub.link ?
-          `<a href="${pub.link}" class="pub-link" target="_blank">
-              <span>View</span> <i class="fas fa-external-link-alt"></i>
-           </a>` : '';
+        // [수정됨] 링크 버튼: 작은 뱃지 형태
+        const linkHtml = pub.link ?
+            `<a href="${pub.link}" class="pub-link" target="_blank">
+                <span>View</span> <i class="fas fa-external-link-alt"></i>
+             </a>` : '';
+
         const catBadge = `<span class="pub-badge ${pub.category}">${pub.category}</span>`;
         const venueBadge = pub.venueShort ? `<span class="pub-badge venue-tag">${pub.venueShort}</span>` : '';
 
         container.innerHTML += `
             <div class="pub-item">
-                <div class="pub-year">${pub.year}</div>
+                <div class="pub-left-col">
+                    <div class="pub-year">${pub.year}</div>
+                    ${linkHtml}
+                </div>
+
                 <div class="pub-content">
                     <div class="badge-container">
                         ${catBadge}
@@ -450,7 +428,6 @@ function applyPubFilter() {
                     <div class="pub-authors">${pub.authors}</div>
                     <div class="pub-venue">${pub.venue}</div>
                 </div>
-                ${linkHtml}
             </div>`;
     });
 }
