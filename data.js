@@ -955,7 +955,52 @@ const journalPapers = [
         authors: "Seungmoon Choi and Hong Z. Tan",
         venue: "Presence: Teleoperators and Virtual Environment, vol. 16, no. 3, pp. 263-278",
         link: "https://doi.org/10.1162/pres.16.3.263"
-    }
+    },
+    {
+    year: 2006,
+    category: "journal",
+    venueShort: "IJVR",
+    title: "Requirements, Implementation, and Applications of Hand-held Virtual Reality",
+    authors: "Jane Hwang, Jaehoon Jung, Sunghoon Yim, Jaeyoung Cheon, Sungkil Lee, Seungmoon Choi, and Gerard J. Kim",
+    venue: "International Journal of Virtual Reality",
+    link: "https://doi.org/10.20870/IJVR.2006.5.2.2689"
+},
+{
+    year: 2005,
+    category: "journal",
+    venueShort: "TAP",
+    title: "Force Constancy and its Effect on Haptic Perception of Virtual Surfaces",
+    authors: "Seungmoon Choi, Laron Walker, Hong Z. Tan, Scott Crittenden, and Ron Reifenberger",
+    venue: "ACM Transactions on Applied Perception",
+    link: "https://doi.org/10.1145/1060581.1060584"
+},
+{
+    year: 2005,
+    category: "journal",
+    venueShort: "Presence",
+    title: "Perceived Instability of Virtual Haptic Texture. II. Effect of Collision Detection Algorithm",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "Presence: Teleoperators and Virtual Environment",
+    link: "https://doi.org/10.1162/105474605774785271"
+},
+{
+    year: 2004,
+    category: "journal",
+    venueShort: "Presence",
+    title: "Perceived Instability of Virtual Haptic Texture. I. Experimental Studies",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "Presence: Teleoperators and Virtual Environment",
+    link: "https://doi.org/10.1162/1054746041944867"
+},
+{
+    year: 2004,
+    category: "journal",
+    venueShort: "IEEE CG&A",
+    title: "Towards Realistic Haptic Rendering of Surface Texture",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "IEEE Computer Graphics & Applications",
+    link: "https://doi.org/10.1109/MCG.2004.1274060"
+}
     /* data.js - International Conference Papers (2007-2026) */
 
 ];
@@ -1475,6 +1520,33 @@ const posterDemoPapers = [
 
 const conferencePapers = [
 
+  {
+      year: 2026,
+      category: "conference",
+      venueShort: "CHI",
+      title: "Effects of Haptic Feedback on Gaming Experiences: A Case Study Comparing Players and Spectators in FPS Games",
+      authors: "Heeji Sohn, Chaeyong Park, and Seungmoon Choi",
+      venue: "ACM CHI Conference on Human Factors in Computing Systems",
+      link: ""
+  },
+  {
+      year: 2026,
+      category: "conference",
+      venueShort: "CHI",
+      title: "HaRing: A Haptic Ring Interface for One-Handed Interaction with High-Dimensional Spatial Information",
+      authors: "Suheon Nam, Juhyung Son, Seungmoon Choi, and Chaeyong Park",
+      venue: "ACM CHI Conference on Human Factors in Computing Systems",
+      link: ""
+  },
+  {
+      year: 2026,
+      category: "conference",
+      venueShort: "CHI",
+      title: "Touch with Meaning: A Contextual Analysis of Social Touch",
+      authors: "Ayush Bhardwaj, Ashish Pratap, Abbas Khawaja, Yapeng Tian, Uison Ju, Dajin Lee, Seungmoon Choi, and Jin Ryong Kim",
+      venue: "ACM CHI Conference on Human Factors in Computing Systems",
+      link: ""
+  },
     {
         year: 2026,
         category: "conference",
@@ -2619,7 +2691,125 @@ const conferencePapers = [
       authors: "Jaeyoung Cheon and Seungmoon Choi",
       venue: "IEEE World Haptics Conference",
       link: "https://ieeexplore.ieee.org/document/4145156"
-  }
+  },
+  {
+    year: 2006,
+    category: "conference",
+    venueShort: "ICAT",
+    title: "Perceptualizing a “Haptic Edge” with Varying Stiffness Based on Force Constancy",
+    authors: "Jaeyoung Cheon and Seungmoon Choi",
+    venue: "International Conference on Artificial Reality and Telexistence",
+    link: "https://doi.org/10.1007/11941354_40"
+},
+{
+    year: 2006,
+    category: "conference",
+    venueShort: "IROS",
+    title: "Detection Threshold and Mechanical Impedance of the Hand in a Pen-Hold Posture",
+    authors: "Ali Israr, Seungmoon Choi, and Hong Z. Tan",
+    venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+    link: "https://doi.org/10.1109/IROS.2006.282353"
+},
+{
+    year: 2006,
+    category: "conference",
+    venueShort: "HAPTICS",
+    title: "Portable Haptic Display for Large Immersive Virtual Environments",
+    authors: "Enkhtuvshin Dorjgotov, Seungmoon Choi, Steven R. Dunlop, and Gary R. Bertoline",
+    venue: "International Symposium on Haptic Interfaces for Virtual Environment and Teleoperator Systems",
+    link: "https://doi.org/10.1109/HAPTIC.2006.1627102"
+},
+
+// --- 2005 ---
+{
+    year: 2005,
+    category: "conference",
+    venueShort: "WHC",
+    title: "Multi-modal Perceptualization of Volumetric Data and its Application to Molecular Docking",
+    authors: "Ross Maciejewski, Seungmoon Choi, David S. Ebert, and Hong Z. Tan",
+    venue: "IEEE World Haptics Conference",
+    link: "https://doi.org/10.1109/WHC.2005.97"
+},
+{
+    year: 2005,
+    category: "conference",
+    venueShort: "WHC",
+    title: "👑 Perceptibility of Haptic Digital Watermarking of Virtual Textures",
+    authors: "Domenico Prattichizzo, Mauro Barni, Hong Z. Tan, and Seungmoon Choi",
+    venue: "IEEE World Haptics Conference (Candidate for Best Paper Award)",
+    link: "https://doi.org/10.1109/WHC.2005.102"
+},
+{
+    year: 2005,
+    category: "conference",
+    venueShort: "WHC",
+    title: "Discrimination of Virtual Haptic Textures Rendered with Different Update Rates",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "IEEE World Haptics Conference",
+    link: "https://doi.org/10.1109/WHC.2005.41"
+},
+
+// --- 2004 ---
+{
+    year: 2004,
+    category: "conference",
+    venueShort: "IROS",
+    title: "👑 Effect of Update Rate on Perceived Instability of Virtual Haptic Texture",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems (Candidate for Best Paper Award)",
+    link: "https://doi.org/10.1109/IROS.2004.1389970"
+},
+
+// --- 2003 ---
+{
+    year: 2003,
+    category: "conference",
+    venueShort: "IROS",
+    title: "Aliveness: Perceived Instability from a Passive Haptic Texture Rendering System",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+    link: "https://doi.org/10.1109/IROS.2003.1249275"
+},
+{
+    year: 2003,
+    category: "conference",
+    venueShort: "HAPTICS",
+    title: "An Experimental Study of Perceived Instability During Haptic Texture Rendering: Effects of Collision Detection Algorithm",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "International Symposium on Haptic Interfaces for Virtual Environment and Teleoperator Systems",
+    link: "https://doi.org/10.1109/HAPTIC.2003.1191276"
+},
+
+// --- 2002 ---
+{
+    year: 2002,
+    category: "conference",
+    venueShort: "ICRA",
+    title: "A Study on the Sources of Perceptual Instability During Haptic Texture Rendering",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "IEEE International Conference on Robotics and Automation",
+    link: "https://doi.org/10.1109/ROBOT.2002.1014716"
+},
+{
+    year: 2002,
+    category: "conference",
+    venueShort: "HAPTICS",
+    title: "An Analysis of Perceptual Instability During Haptic Texture Rendering",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "International Symposium on Haptic Interfaces for Virtual Environment and Teleoperator Systems",
+    link: "https://doi.org/10.1109/HAPTIC.2002.998950"
+},
+
+// --- 2000 ---
+{
+    year: 2000,
+    category: "conference",
+    venueShort: "PUG",
+    title: "A Parameter Space for Perceptually Stable Haptic Texture Rendering",
+    authors: "Seungmoon Choi and Hong Z. Tan",
+    venue: "PHANToM Users Group Workshop",
+    link: ""
+}
 ];
 /* data.js - Patent Data */
 
