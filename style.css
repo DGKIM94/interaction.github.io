@@ -157,8 +157,8 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .tab-btn.active[data-cat="all"] { background: var(--dark); }
 .tab-btn.active[data-cat="journal"] { background: var(--primary); }
 .tab-btn.active[data-cat="conference"] { background: var(--secondary); }
-.tab-btn.active[data-cat="poster"] { background: #10b981; } /* Poster: 초록 */
-.tab-btn.active[data-cat="demo"] { background: #f59e0b; }   /* Demo: 주황 */
+.tab-btn.active[data-cat="poster"] { background: #10b981; } /* 초록색 */
+.tab-btn.active[data-cat="demo"] { background: #f59e0b; }   /* 주황색 */
 .tab-btn.active[data-cat="patent"] { background: var(--accent); }
 
 .year-filter { display: flex; align-items: center; gap: 10px; }
@@ -185,7 +185,7 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 .search-input { flex: 2; padding: 12px 20px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: inherit; font-size: 0.95rem; }
 .venue-select { flex: 1; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: inherit; font-size: 0.95rem; background: white; cursor: pointer; }
 
-/* --- Pub List (수정됨) --- */
+/* --- Pub List --- */
 .pub-item {
     background: var(--white);
     padding: 30px;
@@ -209,7 +209,7 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
     flex-direction: column;
     align-items: center; /* 가운데 정렬 */
     gap: 8px;            /* 년도와 버튼 사이 간격 */
-    min-width: 80px;     /* 기둥 너비 고정 (년도와 비슷하게) */
+    min-width: 80px;     /* 기둥 너비 고정 */
     text-align: center;
 }
 
@@ -240,7 +240,6 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
     background-color: #e0e7ff;
     color: var(--primary);
 
-    /* 뱃지와 비슷한 크기로 작게 설정 */
     padding: 4px 10px;
     font-size: 0.8rem;
     font-weight: 700;
@@ -256,6 +255,12 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+/* [중요] 수상 내역 강조 텍스트 (모든 화면 공통 적용) */
+.award-text {
+    color: #e11d48 !important; /* 선명한 빨간색 */
+    font-weight: 800 !important; /* 굵게 */
 }
 
 /* Badges */
@@ -338,7 +343,7 @@ footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 4
 
     .filter-tabs {
         display: flex;
-        flex-wrap: wrap;        /* 줄바꿈 허용 */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
         width: 100%;
@@ -368,11 +373,6 @@ footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 4
         align-items: flex-start; /* 왼쪽 정렬 */
         gap: 15px;
         padding: 20px;
-    }
-    /* [추가] 수상 내역 강조 텍스트 (빨간색) */
-    .award-text {
-        color: #dc2626;   /* 진한 빨간색 */
-        font-weight: 800; /* 아주 굵게 */
     }
 
     /* 모바일에서는 왼쪽 기둥(년도+버튼)을 풀어줌 */
