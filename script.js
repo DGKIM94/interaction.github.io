@@ -132,48 +132,78 @@ function showNewsDetail(index) {
 /* =========================================
    5. 멤버 페이지
    ========================================= */
-function renderMembers() {
-    const profList = document.getElementById('prof-list');
-    const phdList = document.getElementById('phd-list');
-    const msList = document.getElementById('ms-list');
-    const alumniList = document.getElementById('alumni-list');
+   /* script.js - renderMembers 함수 수정본 */
 
-    if (!profList) return;
-    profList.innerHTML = '';
-    phdList.innerHTML = '';
-    msList.innerHTML = '';
-    if (alumniList) alumniList.innerHTML = '';
+   function renderMembers() {
+       const profList = document.getElementById('prof-list');
+       const postdocList = document.getElementById('postdoc-list'); // [추가]
+       const postdocHeader = document.getElementById('postdoc-header'); // [추가]
+       const phdList = document.getElementById('phd-list');
+       const msList = document.getElementById('ms-list');
+       const alumniList = document.getElementById('alumni-list');
 
-    if (typeof memberData === 'undefined') return;
+       if (!profList) return;
 
-    memberData.forEach((m, index) => {
-        if (m.role !== 'alumni') {
-            const card = createMemberCard(m, index);
-            if (m.role === 'prof') profList.innerHTML += card;
-            else if (m.desc.includes('Ph.D') || m.desc.includes('Direct') || m.desc.includes('Post')) phdList.innerHTML += card;
-            else if (m.desc.includes('Master') || m.desc.includes('M.S')) msList.innerHTML += card;
-        }
-    });
+       // 초기화
+       profList.innerHTML = '';
+       if (postdocList) postdocList.innerHTML = '';
+       phdList.innerHTML = '';
+       msList.innerHTML = '';
+       if (alumniList) alumniList.innerHTML = '';
 
-    if (alumniList) {
-        const alumni = memberData.filter(m => m.role === 'alumni');
-        alumni.sort((a, b) => {
-            const getYear = (str) => {
-                const match = str.match(/\((19|20)\d{2}\)/);
-                return match ? parseInt(match[0].replace(/[()]/g, '')) : 0;
-            };
-            return getYear(b.desc) - getYear(a.desc);
-        });
-        alumni.forEach(m => {
-            alumniList.innerHTML += `
-                <div class="alumni-item" style="background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.05); border-left:4px solid #ccc;">
-                    <strong style="color:var(--dark);">${m.name}</strong>
-                    <span style="font-size:0.85rem; color:#666; display:block; margin-top:4px;">${m.desc}</span>
-                </div>`;
-        });
-    }
-}
+       if (typeof memberData === 'undefined') return;
 
+       let hasPostDoc = false;
+
+       memberData.forEach((m, index) => {
+           if (m.role !== 'alumni') {
+               const card = createMemberCard(m, index);
+               const descLower = m.desc.toLowerCase();
+
+               if (m.role === 'prof') {
+                   profList.innerHTML += card;
+               }
+               // [수정] Post-Doc 분류 로직
+               else if (descLower.includes('post-doc') || descLower.includes('researcher')) {
+                   if (postdocList) {
+                       postdocList.innerHTML += card;
+                       hasPostDoc = true;
+                   }
+               }
+               else if (descLower.includes('ph.d') || descLower.includes('direct')) {
+                   phdList.innerHTML += card;
+               }
+               else if (descLower.includes('master') || descLower.includes('m.s')) {
+                   msList.innerHTML += card;
+               }
+           }
+       });
+
+       // Post-Doc이 있을 때만 헤더 표시
+       if (postdocHeader) {
+           postdocHeader.style.display = hasPostDoc ? 'block' : 'none';
+       }
+
+       // Alumni 처리
+       if (alumniList) {
+           const alumni = memberData.filter(m => m.role === 'alumni');
+           alumni.sort((a, b) => {
+               const getYear = (str) => {
+                   const match = str.match(/\((19|20)\d{2}\)/);
+                   return match ? parseInt(match[0].replace(/[()]/g, '')) : 0;
+               };
+               return getYear(b.desc) - getYear(a.desc);
+           });
+
+           alumni.forEach(m => {
+               alumniList.innerHTML += `
+                   <div class="alumni-item" style="background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.05); border-left:4px solid #ccc;">
+                       <strong style="color:var(--dark);">${m.name}</strong>
+                       <span style="font-size:0.85rem; color:#666; display:block; margin-top:4px;">${m.desc}</span>
+                   </div>`;
+           });
+       }
+   }
 function createMemberCard(m, index) {
     return `
         <div class="member-card" onclick="showMemberDetail(${index})">
